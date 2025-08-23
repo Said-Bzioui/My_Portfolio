@@ -2,8 +2,8 @@ import React, { useEffect, memo, useMemo } from "react"
 import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import CardProject from "../components/CardProject";
 import TechStackIcon from "../components/TechStackIcon";
+import { STACK } from "../../lib/data";
 
 // Memoized Components
 const Header = memo(() => (
@@ -63,21 +63,14 @@ const StackPage = () => {
       <Header />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-          {[
-            { id: 1, Title: "Project One", Description: "Description for project one.", Link: "https://example.com/1" },
-            { id: 2, Title: "Project Two", Description: "Description for project two.", Link: "https://example.com/2" },
-            { id: 3, Title: "Project Three", Description: "Description for project three.", Link: "https://example.com/3" },
-            { id: 4, Title: "Project Four", Description: "Description for project four.", Link: "https://example.com/4" },
-            { id: 5, Title: "Project Five", Description: "Description for project five.", Link: "https://example.com/5" },
-            { id: 6, Title: "Project Six", Description: "Description for project six.", Link: "https://example.com/6" }
-          ].map((_, index) => (
+          {STACK.map((item, index) => (
             <div
-            className="py-2"
-              key={index}
+              className="py-2"
+              key={item.id}
               data-aos={index % 4 === 0 ? "fade-up-right" : index % 4 === 1 ? "fade-up" : "fade-up-left"}
               data-aos-duration={index % 4 === 0 ? "1000" : index % 4 === 1 ? "1200" : "1000"}
             >
-              <TechStackIcon TechStackIcon='/stack/tailwind.svg' Language='HTML' />
+              <TechStackIcon TechStackIcon={item.photo} Language={item.title} />
             </div>
           ))}
         </div>
