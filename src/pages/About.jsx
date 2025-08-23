@@ -42,7 +42,7 @@ const ProfileImage = memo(() => (
       </div>
 
       <div className="relative">
-        <div className="w-72 h-72 sm:w-80 sm:h-80 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(120,119,198,0.3)] transform transition-all duration-700 group-hover:scale-105">
+        <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(120,119,198,0.3)] transform transition-all duration-700 group-hover:scale-105">
           <div className="absolute inset-0 border-4 border-white/20 rounded-xl z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
 
           <img
@@ -197,7 +197,7 @@ const AboutPage = () => {
                 Hello, I'm
               </span>
               <span
-                className="block mt-2 text-gray-200"
+                className="block mt-2 text-gray-200 text-4xl"
                 data-aos="fade-right"
                 data-aos-duration="1300"
               >

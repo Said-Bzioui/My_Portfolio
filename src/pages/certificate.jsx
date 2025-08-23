@@ -61,7 +61,7 @@ const CertificatesPage = () => {
     >
       <Header />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-5">
           {[
             { id: 1, Title: "Project One", Description: "Description for project one.", Link: "https://example.com/1" },
             { id: 2, Title: "Project Two", Description: "Description for project two.", Link: "https://example.com/2" },
@@ -76,7 +76,7 @@ const CertificatesPage = () => {
               data-aos-duration={index % 4 === 0 ? "1000" : index % 4 === 1 ? "1200" : "1000"}
             >
               {/* Certificate Image with Initial Filter */}
-              <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 hover:shadow-purple-500/20 p-4">
+              <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-lg border border-white/10 shadow-2xl transition-all duration-300 hover:shadow-purple-500/20 p-2">
                 <img
                   className="w-full h-auto block object-cover "
                   src='/certifes/certife.jpg'
