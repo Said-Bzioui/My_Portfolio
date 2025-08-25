@@ -24,7 +24,7 @@ const Timeline = ({ educations = [] }) => {
                             </h3>
                                 <p className="text-slate-400 text-sm leading-relaxed">
                                     {item.description}
-                                    <span className="py-0.5 px-2 mx-3  rounded-lg text-xs bg-[#a855f7]/20 text-[#a855f7]/80">{item.date}</span>
+                                    <span className="py-0.5 px-2 mx-3 whitespace-nowrap rounded-lg text-xs bg-[#a855f7]/20 text-[#a855f7]/80">{item.date}</span>
                                 </p>
                             {/* النقطة على الخط */}
                             <span
