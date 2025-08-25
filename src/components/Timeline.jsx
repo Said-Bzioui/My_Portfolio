@@ -1,5 +1,5 @@
 
-const Timeline = ({ educations = [] }) => {
+const Timeline = ({ data = [] }) => {
 
     return (
         <div className=" py-16">
@@ -7,7 +7,7 @@ const Timeline = ({ educations = [] }) => {
                 {/* الخط فالنص */}
                 <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-full  bg-gradient-to-b from-[#6366f1] to-[#a855f7]"></div>
                 {/* العناصر */}
-                {educations.map((item, j) => (
+                {data.map((item, j) => (
                     <div
                         key={j}
                         className={`relative flex ${item.side === "left"
@@ -22,17 +22,21 @@ const Timeline = ({ educations = [] }) => {
                             <h3 className="text-[#6366f1] font-bold  mb-2">
                                 {item.title}
                             </h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">
-                                    {item.description}
-                                    <span className="py-0.5 px-2 mx-3 whitespace-nowrap rounded-lg text-xs bg-[#a855f7]/20 text-[#a855f7]/80">{item.date}</span>
-                                </p>
+                            <p className="text-slate-400 text-sm leading-relaxed">
+                                {item.description}
+                                <span className="py-0.5 px-2 mx-3 whitespace-nowrap rounded-lg text-xs bg-[#a855f7]/20 text-[#a855f7]/80">{item.date}</span>
+                            </p>
                             {/* النقطة على الخط */}
                             <span
-                                className={`hidden md:block absolute top-1/2 w-3 h-3   bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full transform -translate-y-1/2 ${item.side === "left"
+                                className={`hidden md:flex justify-center items-center absolute top-1/2 w-3 h-3   bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full transform -translate-y-1/2 ${item.side === "left"
                                     ? "-right-[23px]"
                                     : "-left-[23px]"
                                     }`}
-                            ></span>
+                            >
+                                <span
+                                    className={`hidden animate-ping md:block  w-3 h-3   bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full `}
+                                ></span>
+                            </span>
 
                             {/* المثلث الصغير */}
                             <span

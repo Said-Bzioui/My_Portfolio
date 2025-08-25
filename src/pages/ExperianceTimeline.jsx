@@ -2,21 +2,14 @@
 import { Phone, Sparkles } from "lucide-react";
 import Timeline from "../components/Timeline";
 
-const EducationsPage = () => {
-    const educations = [
+const ExperiencesPage = () => {
+    const experiences = [
         {
             side: "left",
-            title: "Technicien Spécialisé En Développement Digital option web full stack",
-            date: "2023-2025",
-            description: "Cités des Métiers et des Compétences | Rabat",
+            title: "Développeur Web Full Stack (Stagiaire)",
+            date: "Avril–Juin 2025",
+            description: "DigiSense SARL – Rabat Agdal",
             photo : '/education/cmc.jpg'
-        },
-        {
-            side: "right",
-            title: "Baccalauréat Sciences Physiques",
-            date: "2021-2022",
-            description: "Zineb Nafzaouia | Sidi Slimane",
-
         }
     ];
 
@@ -30,7 +23,7 @@ const EducationsPage = () => {
                         data-aos="zoom-in-up"
                         data-aos-duration="600"
                     >
-                        Educations
+                        EXPERIENCE
                     </h2>
                 </div>
                 <p
@@ -43,9 +36,9 @@ const EducationsPage = () => {
                     <Sparkles className="w-5 h-5 text-purple-400" />
                 </p>
             </div>
-            <Timeline data={educations} />
+            <Timeline data={experiences} />
         </div>
     );
 };
 
-export default EducationsPage;
+export default ExperiencesPage;
