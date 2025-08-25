@@ -9,13 +9,13 @@ const ExperiencesPage = () => {
             title: "Développeur Web Full Stack (Stagiaire)",
             date: "Avril–Juin 2025",
             description: "DigiSense SARL – Rabat Agdal",
-            photo : '/education/cmc.jpg'
+            photo: '/education/cmc.jpg'
         }
     ];
 
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto p-6" id="Experiences">
             <div className="text-center lg:mb-4 mb-2 px-[5%]">
                 <div className="inline-block relative group">
                     <h2
@@ -23,7 +23,7 @@ const ExperiencesPage = () => {
                         data-aos="zoom-in-up"
                         data-aos-duration="600"
                     >
-                        EXPERIENCE
+                        Experiences
                     </h2>
                 </div>
                 <p

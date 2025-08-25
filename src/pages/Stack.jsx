@@ -58,7 +58,7 @@ const StackPage = () => {
   return (
     <div
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]  "
-      id="About"
+      id="Thech_Stack"
     >
       <Header />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">

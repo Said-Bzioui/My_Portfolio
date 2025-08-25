@@ -23,7 +23,7 @@ function App() {
       <EducationsPage />
       <ExperiencesPage />
       <Footer />
- 
+
     </>
   )
 }

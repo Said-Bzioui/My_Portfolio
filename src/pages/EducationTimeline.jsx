@@ -22,7 +22,7 @@ const EducationsPage = () => {
 
 
     return (
-        <div className="container mx-auto p-6">
+        <div className="container mx-auto p-6"   id="Educations">
             <div className="text-center lg:mb-4 mb-2 px-[5%]">
                 <div className="inline-block relative group">
                     <h2
