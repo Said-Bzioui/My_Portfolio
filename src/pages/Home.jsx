@@ -76,11 +76,11 @@ const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS = ["Web Developer", "Problem Solver", "Frontend Developer", "Backend Developer", "Full Stack Developer"];
-const TECH_STACK = ["React", "Javascript", "PHP", "LARAVEL", "Tailwind", 'NEXT'];
+const TECH_STACK = ["React", 'NEXT', "Javascript", "TailwindCss", "PHP", "LARAVEL"];
 const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/EkiZR" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/ekizr/" },
-  { icon: Instagram, link: "https://www.instagram.com/ekizr_/?hl=id" }
+  { icon: Github, link: "https://github.com/Said-Bzioui" },
+  { icon: Linkedin, link: "https://www.linkedin.com/in/said-bzioui/" },
+  { icon: Instagram, link: "https://www.instagram.com/saidbzioui_1/" }
 ];
 
 const Home = () => {

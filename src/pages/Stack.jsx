@@ -4,30 +4,7 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import TechStackIcon from "../components/TechStackIcon";
 import { STACK } from "../../lib/data";
-
-// Memoized Components
-const Header = memo(() => (
-  <div className="text-center lg:mb-8 mb-2 px-[5%]">
-    <div className="inline-block relative group">
-      <h2
-        className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
-        data-aos="zoom-in-up"
-        data-aos-duration="600"
-      >
-        Thech Stack
-      </h2>
-    </div>
-    <p
-      className="mt-2 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
-      data-aos="zoom-in-up"
-      data-aos-duration="800"
-    >
-      <Sparkles className="w-5 h-5 text-purple-400" />
-      Transforming ideas into digital experiences
-      <Sparkles className="w-5 h-5 text-purple-400" />
-    </p>
-  </div>
-));
+import { Titele } from "../components/Headings";
 
 
 const StackPage = () => {
@@ -58,9 +35,9 @@ const StackPage = () => {
   return (
     <div
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]  "
-      id="Thech_Stack"
+      id="Tech_Stack"
     >
-      <Header />
+      <Titele head="My Tech Stack" paragraph="Use Modern Frameworks And Tools To Build Fast" />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
           {STACK.map((item, index) => (
