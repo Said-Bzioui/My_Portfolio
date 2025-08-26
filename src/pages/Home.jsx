@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, memo } from "react"
 import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import Landing from "../components/Landing";
 
 // Memoized Components
 const StatusBadge = memo(() => (
@@ -75,7 +76,7 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Web Developer", "Problem Solver", "Frontend Developer", "Backend Developer", "Full Stack Developer"];
+const WORDS = ["Web Developer", "Problem Solver", "hardworker", "quickLearner", "Full Stack Developer"];
 const TECH_STACK = ["#React", '#NEXT', "#Javascript", "#TailwindCss", "#PHP", "#LARAVEL"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Said-Bzioui" },
@@ -191,9 +192,10 @@ const Home = () => {
             </div>
 
             {/* Right Column - Optimized Lottie Animation */}
-            <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative hidden md:flex items-center  justify-center order-2 lg:order-2 mt-8 lg:mt-0"
+            <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center  justify-center order-2 lg:order-2 mt-8 lg:mt-0"
               data-aos="fade-left"
               data-aos-delay="600">
+                <Landing/>
             </div>
           </div>
         </div>
