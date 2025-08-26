@@ -13,7 +13,7 @@ export const Titele = ({ head, paragraph }) => (
             </h2>
         </div>
         <p
-            className="mt-2 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-2"
+            className="mt-2 text-gray-400 w-full mx-auto text-base sm:text-lg flex items-center justify-center gap-2 "
             data-aos="zoom-in-up"
             data-aos-duration="800"
         >
