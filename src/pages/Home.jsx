@@ -39,7 +39,7 @@ const MainTitle = memo(() => (
 ));
 
 const TechStack = memo(({ tech }) => (
-  <div className="px-4 py-2 hidden sm:block rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 hover:bg-white/10 transition-colors">
+  <div className="px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-[#a855f7]/30 text-sm text-gray-300 hover:bg-white/10 transition-colors">
     {tech}
   </div>
 ));
@@ -76,7 +76,7 @@ const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS = ["Web Developer", "Problem Solver", "Frontend Developer", "Backend Developer", "Full Stack Developer"];
-const TECH_STACK = ["React", 'NEXT', "Javascript", "TailwindCss", "PHP", "LARAVEL"];
+const TECH_STACK = ["#React", '#NEXT', "#Javascript", "#TailwindCss", "#PHP", "#LARAVEL"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Said-Bzioui" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/said-bzioui/" },
@@ -89,7 +89,6 @@ const Home = () => {
   const [wordIndex, setWordIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [isLoaded, setIsLoaded] = useState(false)
-  const [isHovering, setIsHovering] = useState(false)
 
   // Optimize AOS initialization
   useEffect(() => {
@@ -142,15 +141,15 @@ const Home = () => {
 
 
   return (
-    <div className="  md:min-h-screen bg-[#030014] mt-5 md:mt-0 overflow-hidden" id="Home">
+    <div className=" min-h-screen bg-[#030014] mt-5 md:mt-0 overflow-hidden" id="Home">
       <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
         <div className="container mx-auto px-[5%] sm:px-6 lg:px-[0%] md:min-h-screen">
           <div className="flex flex-col lg:flex-row items-center justify-center md:h-screen  gap-0 ">
             {/* Left Column */}
-            <div className="w-full lg:w-1/2 space-y-6 sm:space-y-8 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
+            <div className="w-full lg:w-1/2 space-y-8 sm:space-y-12 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
               data-aos="fade-right"
               data-aos-delay="200">
-              <div className="space-y-2 sm:space-y-4">
+              <div className="space-y-6 sm:space-y-4">
                 <StatusBadge />
                 <MainTitle />
 
@@ -170,7 +169,7 @@ const Home = () => {
                 </p>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-3 justify-start" data-aos="fade-up" data-aos-delay="1200">
+                <div className="flex flex-wrap gap-2 justify-start" data-aos="fade-up" data-aos-delay="1200">
                   {TECH_STACK.map((tech, index) => (
                     <TechStack key={index} tech={tech} />
                   ))}
@@ -193,27 +192,8 @@ const Home = () => {
 
             {/* Right Column - Optimized Lottie Animation */}
             <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative hidden md:flex items-center  justify-center order-2 lg:order-2 mt-8 lg:mt-0"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
               data-aos="fade-left"
               data-aos-delay="600">
-              <div className="relative w-full opacity-90">
-                <div className={`absolute inset-0 bg-gradient-to-r from-[#6366f1]/10 to-[#a855f7]/10 rounded-3xl blur-3xl transition-all duration-700 ease-in-out ${isHovering ? "opacity-50 scale-105" : "opacity-20 scale-100"
-                  }`}>
-                </div>
-
-                <div className={`relative z-10 w-full opacity-90 transform transition-transform duration-500 ${isHovering ? "scale-105" : "scale-100"
-                  }`}>
-
-                </div>
-
-                <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${isHovering ? "opacity-50" : "opacity-20"
-                  }`}>
-                  <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-to-br from-indigo-500/10 to-purple-500/10 blur-3xl animate-[pulse_6s_cubic-bezier(0.4,0,0.6,1)_infinite] transition-all duration-700 ${isHovering ? "scale-110" : "scale-100"
-                    }`}>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

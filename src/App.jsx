@@ -13,8 +13,8 @@ import Stack from './pages/Stack'
 function App() {
   return (
     <>
-      <Navbar />
       <AnimatedBackground />
+      <Navbar />
       <Home />
       <About />
       <Projects />
