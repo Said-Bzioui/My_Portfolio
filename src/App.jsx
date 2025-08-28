@@ -1,4 +1,5 @@
 
+import { Route, Routes } from 'react-router-dom'
 import AnimatedBackground from './components/Background'
 import Footer from './components/footer'
 import Navbar from './components/Navbar'
@@ -9,8 +10,10 @@ import ExperiencesPage from './pages/ExperianceTimeline'
 import Home from './pages/Home'
 import Projects from './pages/projects'
 import Stack from './pages/Stack'
+import ProjectDetails from './components/ProjectDetail'
 
-function App() {
+
+function Portfolio() {
   return (
     <>
       <AnimatedBackground />
@@ -27,5 +30,12 @@ function App() {
     </>
   )
 }
-
+function App() {
+  return (
+      <Routes>
+        <Route path="/" element={<Portfolio />} />
+        <Route path="/project/:id" element={<ProjectDetails />} />
+      </Routes>
+  );
+}
 export default App
