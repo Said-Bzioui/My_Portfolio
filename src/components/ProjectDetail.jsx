@@ -224,7 +224,7 @@ const ProjectDetails = () => {
                 <img
                   src={'/projects/dash.jpeg'}
                   alt={project.title}
-                  className="w-full md:h-96 object-cover "
+                  className="w-full md:h-96 object-cover rounded-md"
                 />
                 <div className="flex mt-5 space-x-2">
                   {project.pictures?.map((pic, i) => (

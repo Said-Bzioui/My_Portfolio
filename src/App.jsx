@@ -11,6 +11,8 @@ import Home from './pages/Home'
 import Projects from './pages/projects'
 import Stack from './pages/Stack'
 import ProjectDetails from './components/ProjectDetail'
+import Activities from './pages/activities'
+import ActivityDetails from './components/ActivityDetail'
 
 
 function Portfolio() {
@@ -25,6 +27,7 @@ function Portfolio() {
       <Stack />
       <EducationsPage />
       <ExperiencesPage />
+      <Activities />
       <Footer />
 
     </>
@@ -35,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Portfolio />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
+        <Route path="/activity/:id" element={<ActivityDetails />} />
       </Routes>
   );
 }
