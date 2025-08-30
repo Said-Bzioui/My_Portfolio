@@ -18,6 +18,7 @@ import ActivityDetails from './components/ActivityDetail'
 function Portfolio() {
   return (
     <>
+   
       <AnimatedBackground />
       <Navbar />
       <Home />

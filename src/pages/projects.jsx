@@ -39,7 +39,7 @@ const ProjectsPage = () => {
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
       id="Projects"
     >
-      <Titele head="My Projects" paragraph="Solve Real Problems With Clean Code" />
+      <Titele head="Mes Projets" paragraph="Résolvez des problèmes concrets grâce à un code propre" />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {PROJECTS.map((project, index) => (

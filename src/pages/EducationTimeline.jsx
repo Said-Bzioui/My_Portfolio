@@ -7,7 +7,7 @@ import { EDUCATIONS } from "../../lib/data";
 const EducationsPage = () => {
     return (
         <div className="container mx-auto p-6" id="Educations">
-            <Titele head="My Educations" paragraph="My Educational Journey To Develop My Coding Skills" />
+            <Titele head="Mes Études" paragraph="Mon parcours éducatif pour développer mes compétences en codage" />
             <Timeline data={EDUCATIONS} />
         </div>
     );

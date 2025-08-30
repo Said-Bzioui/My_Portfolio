@@ -166,7 +166,7 @@ const Home = () => {
                 <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                   data-aos="fade-up"
                   data-aos-delay="1000">
-                  Creating Innovative, Functional, and User-Friendly Websites for Digital Solutions.
+                Création de sites Web innovants, fonctionnels et conviviaux pour des solutions numériques.
                 </p>
 
                 {/* Tech Stack */}

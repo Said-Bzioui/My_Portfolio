@@ -128,24 +128,24 @@ const AboutPage = () => {
       icon: Code,
       color: "from-[#6366f1] to-[#a855f7]",
       value: totalProjects,
-      label: "Total Projects",
-      description: "Innovative web solutions ",
+      label: "Total des projets",
+      description: "Solutions web innovantes",
       animation: "fade-right",
     },
     {
       icon: Award,
       color: "from-[#a855f7] to-[#6366f1]",
       value: totalCertificates,
-      label: "Certificates",
-      description: "Professional skills validated",
+      label: "Certificats",
+      description: "Compétences professionnelles validées",
       animation: "fade-up",
     },
     {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
       value: YearExperience,
-      label: "Years of Experience",
-      description: "Continuous learning journey",
+      label: "Années d'expérience",
+      description: "Parcours d'apprentissage continu",
       animation: "fade-left",
     },
   ], [totalProjects, totalCertificates, YearExperience]);
@@ -166,7 +166,7 @@ const AboutPage = () => {
               data-aos-duration="1000"
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-                Hello, I'm
+                Bonjour, je suis
               </span>
               <span
                 className="block mt-2 text-gray-200 text-4xl"
@@ -182,11 +182,11 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              I hold a degree in digital development,
-              specializing in full web development,
-              and am passionate about front-end and back-end development.
-              I focus on creating engaging digital experiences and
-              always strive to deliver the best solutions for every project.
+              Je suis titulaire d’un diplôme en développement digital,
+              spécialisé en développement web full stack,
+              et je suis passionné par le développement front-end et back-end.
+              Je me concentre sur la création d’expériences numériques engageantes et
+              je m’efforce toujours de fournir les meilleures solutions pour chaque projet.
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
@@ -196,7 +196,7 @@ const AboutPage = () => {
                   data-aos-duration="800"
                   className="w-full cursor-pointer lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
                 >
-                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Download CV
+                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Télécharger CV
                 </button>
               </a>
               <a href="#Projects" className="w-full lg:w-auto">
@@ -205,7 +205,7 @@ const AboutPage = () => {
                   data-aos-duration="1000"
                   className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 bg-[#a855f7]/10 animate-bounce-slow delay-200"
                 >
-                  <Code className="w-4 h-4 sm:w-5 sm:h-5" /> View Projects
+                  <Code className="w-4 h-4 sm:w-5 sm:h-5" /> Voir Les Projets
                 </button>
               </a>
             </div>

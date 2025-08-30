@@ -37,7 +37,7 @@ const StackPage = () => {
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]  "
       id="Tech_Stack"
     >
-      <Titele head="My Tech Stack" paragraph="Use Modern Frameworks And Tools To Build Fast" />
+      <Titele head="Mon Tech Stack" paragraph="Utilisez des Frameworks  et des outils modernes pour développer rapidement" />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
         <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
           {STACK.map((item, index) => (

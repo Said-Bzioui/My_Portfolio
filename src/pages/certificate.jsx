@@ -43,7 +43,7 @@ const CertificatesPage = () => {
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
       id="Certificates"
     >
-      <Titele head="My Certificates" paragraph="Validate My Skills And Continuous Learning Mindset" />
+      <Titele head="Mes certificats" paragraph="Valider mes compétences et mon état d'esprit axé sur l'apprentissage continu" />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
           {CERTIFICATES.map((project, index) => (
@@ -66,14 +66,9 @@ const CertificatesPage = () => {
                   }}
                 />
                 <div className="absolute left-1/2 top-1/2 -translate-1/2  "><Fullscreen className="w-21" /></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent  flex flex-col justify-end p-2 md:p-4">
-                  <div className="mt-2 flex space-x-2">
-                    <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded-full flex items-center space-x-1">
-                      <Award className="w-3 h-3" />
-                      <span >Certificate</span>
-                    </span>
-                  </div>
-                </div>
+                <span className="absolute left-10 w-7 top-0 bg-purple-600 text-white text-xs  py-1  rounded-b-md flex items-center justify-center ">
+                  <Award className="w-5 h-5" />
+                </span>
               </div>
             </div>
           ))}

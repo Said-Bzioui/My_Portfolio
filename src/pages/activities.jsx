@@ -36,9 +36,9 @@ const Activity = () => {
   return (
     <div
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
-      id="Projects"
+      id="Activity"
     >
-      <Titele head="Parallel Activities" paragraph="Various activities I have done" />
+      <Titele head="ACTIVITÉS PARASCOLAIRES" paragraph="Les différentes activités que j'ai réalisées" />
       <div className="container mx-auto flex justify-center items-center overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5">
           {PARASCOLAIRRE.map((activity, index) => (
