@@ -26,7 +26,7 @@ const ProfileImage = memo(() => (
           <div className="absolute inset-0 border-4 border-white/20 rounded-xl z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
 
           <img
-            src="/photo.jpg"
+            src="https://res.cloudinary.com/datjizbe8/image/upload/v1756574743/photo_cmw5f4.jpg"
             alt="Profile"
             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
             loading="lazy"

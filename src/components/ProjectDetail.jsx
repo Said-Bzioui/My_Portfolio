@@ -222,7 +222,7 @@ const ProjectDetails = () => {
             <div className="space-y-6 md:space-y-10 animate-slideInRight">
               <div className="relative p-3 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                 <img
-                  src={'/projects/dash.jpeg'}
+                  src={'https://res.cloudinary.com/datjizbe8/image/upload/v1756573615/dash_rilu2k.jpg'}
                   alt={project.title}
                   className="w-full md:h-96 object-cover rounded-md"
                 />
@@ -233,7 +233,7 @@ const ProjectDetails = () => {
                       className=""
                     >
                       <img
-                        src={'/projects/dash.jpeg'}
+                        src={'https://res.cloudinary.com/datjizbe8/image/upload/v1756573615/dash_rilu2k.jpg'}
                         alt={project.title}
                         className={`object-cover rounded-md cursor-pointer hover:scale-105 transition-transform h-12  md:h-16  ${picture === pic ? 'ring-3 ring-purple-800' : ''}`}
                       />
