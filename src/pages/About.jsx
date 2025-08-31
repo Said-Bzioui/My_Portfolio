@@ -44,8 +44,8 @@ const ProfileImage = memo(() => (
   </div>
 ));
 
-const StatCard = memo(({ icon: Icon, color, value, label, description, animation }) => (
-  <div data-aos={animation} data-aos-duration={1300} className="relative group">
+const StatCard = memo(({ icon: Icon, color, href, value, label, description, animation }) => (
+  <a href={href} data-aos={animation} data-aos-duration={1300} className="relative group">
     <div className="relative z-10 bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-white/10 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between">
       <div className={`absolute -z-10 inset-0 bg-gradient-to-br ${color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
 
@@ -85,7 +85,7 @@ const StatCard = memo(({ icon: Icon, color, value, label, description, animation
         </div>
       </div>
     </div>
-  </div>
+  </a>
 ));
 
 const AboutPage = () => {
@@ -127,6 +127,7 @@ const AboutPage = () => {
     {
       icon: Code,
       color: "from-[#6366f1] to-[#a855f7]",
+      href: "#Projects",
       value: totalProjects,
       label: "Total des projets",
       description: "Solutions web innovantes",
@@ -136,6 +137,7 @@ const AboutPage = () => {
       icon: Award,
       color: "from-[#a855f7] to-[#6366f1]",
       value: totalCertificates,
+      href: "#Certificates",
       label: "Certificats",
       description: "Compétences professionnelles validées",
       animation: "fade-up",
@@ -144,6 +146,7 @@ const AboutPage = () => {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
       value: YearExperience,
+      href: "#Experiences",
       label: "Années d'expérience",
       description: "Parcours d'apprentissage continu",
       animation: "fade-left",
@@ -190,7 +193,7 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="#" download={"/files/SAID_BZIOUI_CV.pdf"} className="w-full lg:w-auto ">
+              <a href="/SAID_BZIOUI_CV.pdf" download="CV_SAID_BZIOUI.pdf" className="w-full lg:w-auto">
                 <button
                   data-aos="fade-up"
                   data-aos-duration="800"
@@ -199,6 +202,7 @@ const AboutPage = () => {
                   <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Télécharger CV
                 </button>
               </a>
+
               <a href="#Projects" className="w-full lg:w-auto">
                 <button
                   data-aos="fade-up"
@@ -214,33 +218,15 @@ const AboutPage = () => {
           <ProfileImage />
         </div>
 
-        <a href="#Portofolio">
+        <div >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
             {statsData.map((stat) => (
               <StatCard key={stat.label} {...stat} />
             ))}
           </div>
-        </a>
+        </div>
       </div>
 
-      <style >{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes spin-slower {
-          to { transform: rotate(360deg); }
-        }
-        .animate-bounce-slow {
-          animation: bounce 3s infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse 3s infinite;
-        }
-        .animate-spin-slower {
-          animation: spin-slower 8s linear infinite;
-        }
-      `}</style>
     </div>
   );
 };

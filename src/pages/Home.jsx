@@ -31,8 +31,8 @@ const MainTitle = memo(() => (
       <br />
       <span className="relative flex items-satrt md:items-center flex-col md:flex-row mt-2 ">
         <span className="absolute -inset-5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="text-white relative w-fit h-fit p-1  mb-2 md:mx-1">
-          <span className=" absolute  w-full h-full -z-10 -skew-2 bg-[#a855f7]/40   "/>
+        <span className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent relative w-fit h-fit   mb-3 md:mb-0 md:mr-5">
+          <span className=" absolute left-1/2 top-1/2 -translate-1/2 w-[107%] h-[107%]  -z-10 -skew-3 bg-gradient-to-r from-[#a855f7]/60 via-[#a855f7]/30 to-[#a855f7]/10   "/>
           Junior
         </span>
         <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
@@ -155,7 +155,7 @@ const Home = () => {
             <div className="w-full lg:w-1/2 space-y-8 sm:space-y-12 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
               data-aos="fade-right"
               data-aos-delay="200">
-              <div className="space-y-6 sm:space-y-4">
+              <div className="space-y-4 sm:space-y-4">
                 <StatusBadge />
                 <MainTitle />
 
