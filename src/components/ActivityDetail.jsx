@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  ArrowLeft, ExternalLink, Github, Code2, Star,
-  ChevronRight, Layers, Layout, Globe, Package, Cpu, Code,
+  ArrowLeft, 
+  ChevronRight,
   Instagram,
   Linkedin,
 } from "lucide-react";
-import { PARASCOLAIRRE, PROJECTS } from "../../lib/data";
-import { Card, CardContent } from "@/components/ui/card"
+import { PARASCOLAIRRE } from "../../lib/data";
 import {
   Carousel,
   CarouselContent,
@@ -141,13 +140,13 @@ const ActivityDetails = () => {
                   <Carousel className="w-[80%] mx-auto">
                     <CarouselContent className="p-2">
                       {activity.pictures?.map((pic, i) => (
-                        <CarouselItem key={i} className={`basis-1/3 md:basis-1/5 w-fit flex items-center justify-center cursor-pointer hover:scale-105 transition-transform `}
+                        <CarouselItem key={i} className={`basis-1/3 md:basis-1/5 ml-1 h-20 flex items-center overflow-hidden  p-0 cursor-pointer hover:scale-105 transition-transform `}
                           onClick={() => handlePictureClick(pic)}
                         >
                                 <img
                                   src={pic}
                                   alt={activity.title}
-                                  className={`object-contain w-full  ${picture === pic ? 'ring-3 ring-purple-800' : ''} `}
+                                  className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-purple-800' : ''} `}
                                 />
                         </CarouselItem>
                       ))}
