@@ -86,7 +86,7 @@ const Navbar = () => {
                             className=" bg-gradient-to-r from-[#a855f7] to-[#6366f1]  flex items-center justify-center rounded-full p-0.5"
                         >
                             <img
-                                src="/logo.jpg"
+                                src="https://res.cloudinary.com/datjizbe8/image/upload/v1756574635/logo_tnlhz1.jpg"
                                 alt="Profile"
                                 className="w-9 h-9 rounded-full "
                                 loading="lazy"

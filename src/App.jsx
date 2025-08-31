@@ -13,12 +13,13 @@ import Stack from './pages/Stack'
 import ProjectDetails from './components/ProjectDetail'
 import Activities from './pages/activities'
 import ActivityDetails from './components/ActivityDetail'
+import { OpenTo } from './components/OpenTo'
 
 
 function Portfolio() {
   return (
     <>
-   
+      <OpenTo />
       <AnimatedBackground />
       <Navbar />
       <Home />
@@ -36,11 +37,11 @@ function Portfolio() {
 }
 function App() {
   return (
-      <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/project/:id" element={<ProjectDetails />} />
-        <Route path="/activity/:id" element={<ActivityDetails />} />
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Portfolio />} />
+      <Route path="/project/:id" element={<ProjectDetails />} />
+      <Route path="/activity/:id" element={<ActivityDetails />} />
+    </Routes>
   );
 }
 export default App

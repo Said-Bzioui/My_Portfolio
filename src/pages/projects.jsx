@@ -49,7 +49,7 @@ const ProjectsPage = () => {
               data-aos-duration={index % 4 === 0 ? "1000" : index % 4 === 1 ? "1200" : "1000"}
             >
               <CardProject
-                Img='https://res.cloudinary.com/datjizbe8/image/upload/v1756573615/dash_rilu2k.jpg'
+                Img={project.photo}
                 Title={project.title}
                 Description={project.description}
                 Link={project.link}
