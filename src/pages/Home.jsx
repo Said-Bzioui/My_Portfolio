@@ -29,10 +29,15 @@ const MainTitle = memo(() => (
         </span>
       </span>
       <br />
-      <span className="relative inline-block mt-2">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
+      <span className="relative flex items-satrt md:items-center flex-col md:flex-row mt-2 ">
+        <span className="absolute -inset-5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
+        <span className="text-white relative w-fit h-fit p-1  mb-2 md:mx-1">
+          <span className=" absolute  w-full h-full -z-10 -skew-2 bg-[#a855f7]/40   "/>
+          Junior
+        </span>
         <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-         Full Stack
+
+          Full Stack
         </span>
       </span>
     </h1>
@@ -166,7 +171,7 @@ const Home = () => {
                 <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                   data-aos="fade-up"
                   data-aos-delay="1000">
-                Création de sites Web innovants, fonctionnels et conviviaux pour des solutions numériques.
+                  Création de sites Web innovants, fonctionnels et conviviaux pour des solutions numériques.
                 </p>
 
                 {/* Tech Stack */}
@@ -195,7 +200,7 @@ const Home = () => {
             <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center  justify-center order-2 lg:order-2 mt-8 lg:mt-0"
               data-aos="fade-left"
               data-aos-delay="600">
-                <Landing/>
+              <Landing />
             </div>
           </div>
         </div>
