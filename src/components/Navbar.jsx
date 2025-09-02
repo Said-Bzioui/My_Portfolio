@@ -12,7 +12,6 @@ const Navbar = () => {
         { href: "#Projects", label: "Projects" },
         { href: "#Certificates", label: "Certificates" },
         { href: "#Activity", label: "Activities" },
-        { href: "#Contact", label: "Contact" },
     ];
 
     useEffect(() => {
@@ -120,6 +119,12 @@ const Navbar = () => {
                                     />
                                 </a>
                             ))}
+                            <a
+                                href="/contact"
+                                className={`font-semibold border-2 border-[#a855f7]/50 hover:bg-[#a855f7]/50 text-[#a855f7] py-1 rounded-full px-2 cursor-pointer duration-300 `}
+                            >
+                                Contact
+                            </a>
                         </div>
                     </div>
 

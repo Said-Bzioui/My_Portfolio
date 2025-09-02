@@ -52,7 +52,7 @@ const TechStack = memo(({ tech }) => (
 
 const CTAButton = memo(({ href, text, icon: Icon }) => (
   <a href={href}>
-    <button className="group relative w-[160px]">
+    <button className="group relative w-[160px] cursor-pointer">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#4f52c9] to-[#8644c5] rounded-xl opacity-30 blur-md group-hover:opacity-90 transition-all duration-700"></div>
       <div className="relative h-11  bg-slate-800/50 hover:bg-slate-700/50 backdrop-blur-xl rounded-lg  leading-none overflow-hidden">
         <div className="absolute inset-0 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 bg-gradient-to-r from-[#4f52c9]/40 to-[#8644c5]/40"></div>
@@ -184,7 +184,7 @@ const Home = () => {
                 {/* CTA Buttons */}
                 <div className="flex flex-row gap-3 w-full justify-start" data-aos="fade-up" data-aos-delay="1400">
                   <CTAButton href="#Projects" text="Projects" icon={ExternalLink} />
-                  <CTAButton href="#Contact" text="Contact" icon={Mail} />
+                  <CTAButton href="/contact" text="Contact" icon={Mail} />
                 </div>
 
                 {/* Social Links */}

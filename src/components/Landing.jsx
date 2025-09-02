@@ -15,7 +15,7 @@ export default function Landing() {
             </div>
 
             {/* Code Content */}
-            <div className="bg-gradient-to-br from-slate-900/90 to-purple-900/30 p-8 text-base font-mono leading-relaxed">
+            <div className="bg-slate-900/40 p-8 text-base  leading-relaxed">
                 <div className="text-gray-200">
                     <span className="text-purple-400 font-semibold">export </span>{' '}
                     <span className="text-purple-400 font-semibold">const</span>{' '}
@@ -36,15 +36,17 @@ export default function Landing() {
                         <span className="text-blue-400">skills</span>
                         <span className="text-gray-400"> :</span>{' '}
                         <span className="text-yellow-300">[ </span>
+                        <br />
+
+                    </div>
+
+                    <div className="text-gray-200 ml-14">
                         <span className="text-green-400 font-medium"> 'React'</span>
                         <span className="text-gray-400"> ,</span>{' '}
                         <span className="text-green-400 font-medium">'Tailwind'</span>
                         <span className="text-gray-400"> ,</span>{' '}
                         <span className="text-green-400 font-medium">'Javascript'</span>
                         <span className="text-gray-400"> ,</span>
-                    </div>
-
-                    <div className="text-gray-200 ml-14">
                         <span className="text-green-400 font-medium">'NextJS'</span>
                         <span className="text-gray-400"> ,</span>{' '}
                         <span className="text-green-400 font-medium">'Redux'</span>
@@ -52,6 +54,7 @@ export default function Landing() {
                         <span className="text-green-400 font-medium">'Express'</span>
                         <span className="text-gray-400"> ,</span>{' '}
                         <span className="text-green-400 font-medium">'MongoDB' </span>
+                        <br />
                         <span className="text-yellow-300"> ]</span>
                         <span className="text-gray-400"> ,</span>
                     </div>
