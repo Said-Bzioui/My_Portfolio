@@ -14,7 +14,7 @@ import ProjectDetails from './components/ProjectDetail'
 import Activities from './pages/activities'
 import ActivityDetails from './components/ActivityDetail'
 import { OpenTo } from './components/OpenTo'
-import Contact from './components/Contact'
+import Contact from './pages/Contact'
 
 
 function Portfolio() {
@@ -42,7 +42,7 @@ function App() {
       <Route path="/" element={<Portfolio />} />
       <Route path="/project/:id" element={<ProjectDetails />} />
       <Route path="/activity/:id" element={<ActivityDetails />} />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/contact" element={<Contact/>} />
     </Routes>
   );
 }
