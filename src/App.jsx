@@ -42,7 +42,7 @@ function App() {
       <Route path="/" element={<Portfolio />} />
       <Route path="/project/:id" element={<ProjectDetails />} />
       <Route path="/activity/:id" element={<ActivityDetails />} />
-      <Route path="/contact" element={<Contact/>} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 }
