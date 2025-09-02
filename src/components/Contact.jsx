@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Github, Linkedin, Mail, MapPinCheckInside, MessageSquare, Phone, Send, User } from "lucide-react";
+import { Ban, CheckCircle, Github, Linkedin, Mail, MapPinCheckInside, MessageSquare, Phone, Send, User, X } from "lucide-react";
 import { useEffect, useState } from "react"; import axios from "axios";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -201,18 +201,80 @@ const Contact = () => {
             </div>
             {/*  Success popup */}
             {open && (
-                <div className="absolute left-1/2 top-1/2 -translate-1/2 w-[40%] h-55 rounded-2xl text-white text-center  bg-green-700 ">
-                    <p></p>
-                    <button onClick={() => setOpen(false)}>إغلاق</button>
-                </div>
+                <>
+                    <div
+                        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm animate-in fade-in-0 duration-300"
+                    />
+                    <div
+                        className="fixed left-1/2 top-1/2 p-5 z-50 w-[90%] md:w-full  max-w-md -translate-x-1/2 -translate-y-1/2 animate-in fade-in-0 zoom-in-95 duration-300 bg-gradient-to-r
+                            from-green-950/50 to-emerald-950/30
+                            border border-green-800 rounded-2xl shadow-2xl">
+                        <button
+                            onClick={() => setOpen(false)}
+                            className="absolute top-4 rounded-lg p-1.5  text-green-400 hover:text-green-300 hover:bg-green-900/50 transition-colors"
+                        >
+                            <X className="h-4 w-4" />
+                            <span className="sr-only">Fermer</span>
+                        </button>
+                        <div className="flex justify-center mb-4">
+                            <div className="rounded-full bg-green-900/50 p-3">
+                                <CheckCircle className="h-8 w-8 text-green-400" />
+                            </div>
+                        </div>
+                        <div className="text-center space-y-3">
+                            <h3 className="text-lg font-semibold text-green-100">Réussi</h3>
+                            <p className="text-sm text-green-200 leading-relaxed">Le message a été envoyé avec succès.</p>
+                        </div>
+                        <div className="mt-6 flex justify-center">
+                            <button
+                                onClick={() => setOpen(false)}
+                                className="px-6 py-2.5 cursor-pointer   text-white font-medium rounded-lg
+                                    transition-colors duration-200 focus:outline-none ring-green-600  focus:ring-1  focus:ring-offset-1
+                                    bg-green-700 hover:bg-green-600"
+                            >
+                                Fermer
+                            </button>
+                        </div>
+                    </div>
+                </>
             )}
-
-            {/* ❌ Error popup */}
             {errorOpen && (
-                <div className="bg-red-700 absolute left-1/2 top-1/2 -translate-1/2 w-[40%] h-55 rounded-2xl text-white text-center  ">
-                    <p>❌ وقع مشكل، جرب مرة أخرى.</p>
-                    <button onClick={() => setErrorOpen(false)}>إغلاق</button>
-                </div>
+                <>
+                    <div
+                        className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm animate-in fade-in-0 duration-300"
+                    />
+                    <div
+                        className="fixed left-1/2 top-1/2 p-5 z-50 w-[90%] md:w-full max-w-md -translate-x-1/2 -translate-y-1/2 animate-in fade-in-0 zoom-in-95 duration-300 bg-gradient-to-r
+                            from-red-950/50 to-red-400/30
+                            border border-red-800 rounded-2xl shadow-2xl">
+                        <button
+                            onClick={() => setErrorOpen(false)}
+                            className="absolute top-4 rounded-lg p-1.5  text-red-400 hover:text-red-300 hover:bg-red-900/50 transition-colors"
+                        >
+                            <X className="h-4 w-4" />
+                            <span className="sr-only">Fermer</span>
+                        </button>
+                        <div className="flex justify-center mb-4">
+                            <div className="rounded-full bg-red-900/50 p-3">
+                                <Ban className="h-8 w-8 text-red-400" />
+                            </div>
+                        </div>
+                        <div className="text-center space-y-3">
+                            <h3 className="text-lg font-semibold text-red-100">Échec</h3>
+                            <p className="text-sm text-red-200 leading-relaxed">Le message n’a pas été envoyé.</p>
+                        </div>
+                        <div className="mt-6 flex justify-center">
+                            <button
+                                onClick={() => setErrorOpen(false)}
+                                className="px-6 py-2.5 cursor-pointer   text-white font-medium rounded-lg
+                                    transition-colors duration-200 focus:outline-none ring-red-600  focus:ring-1  focus:ring-offset-1
+                                    bg-red-700 hover:bg-red-600"
+                            >
+                                Fermer
+                            </button>
+                        </div>
+                    </div>
+                </>
             )}
         </div >
     )
