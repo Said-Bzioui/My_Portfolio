@@ -151,7 +151,7 @@ const Contact = () => {
                                 name="name"
                                 {...register("name")}
                                 placeholder="Your Name"
-                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border ${errors.message ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"} placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50`}
+                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border ${errors.name ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"} placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50`}
 
                             />
                             {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
@@ -168,7 +168,7 @@ const Contact = () => {
                                 name="email"
                                 {...register("email")}
                                 placeholder="Your Email"
-                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border  placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50 ${errors.message ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}`}
+                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border  placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50 ${errors.email ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}`}
 
                             />
                             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
