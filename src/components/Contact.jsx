@@ -47,7 +47,7 @@ const Contact = () => {
             formData.append("_captcha", "false");
             formData.append("_subject", "message jdid wslk mn Portfolio");
             formData.append("_next", "https://saidbzioui.vercel.app/contact");
-            await axios.post("https://formsubmitss.co/saidbzioui.contact@gmail.com", formData);
+            await axios.post("https://formsubmit.co/saidbzioui.contact@gmail.com", formData);
             setOpen(true); // success popup
             reset(); // reset form
         } catch (e) {
