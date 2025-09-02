@@ -152,7 +152,7 @@ const Home = () => {
         <div className="container mx-auto px-[5%] sm:px-6 lg:px-[0%] md:min-h-screen">
           <div className="flex flex-col lg:flex-row items-center justify-center md:h-screen  gap-0 ">
             {/* Left Column */}
-            <div className="w-full lg:w-1/2 space-y-8 sm:space-y-12 text-left lg:text-left order-1 lg:order-1 lg:mt-0"
+            <div className="w-full lg:w-1/2 space-y-8 sm:space-y-12 text-left lg:text-left mt-5 lg:mt-10"
               data-aos="fade-right"
               data-aos-delay="200">
               <div className="space-y-4 sm:space-y-4">
@@ -197,7 +197,7 @@ const Home = () => {
             </div>
 
             {/* Right Column - Optimized Lottie Animation */}
-            <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center  justify-center order-2 lg:order-2 mt-8 lg:mt-0"
+            <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center  justify-center  mt-0 lg:mt-10"
               data-aos="fade-left"
               data-aos-delay="600">
               <Landing />

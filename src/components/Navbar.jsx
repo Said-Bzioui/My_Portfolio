@@ -68,15 +68,15 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed w-full  top-0 z-50 transition-all duration-500 ${isOpen
-                ? "bg-[#030014] opacity-100"
-                : scrolled
-                    ? "bg-[#030014]/50 backdrop-blur-xl"
-                    : "bg-transparent"
-                }`}
+            className={`fixed w-full  top-0 z-50 transition-all duration-500 bg-transparent`}
         >
-            <div className="mx-auto px-4 sm:px-6 lg:px-[10%]">
-                <div className="flex items-center justify-between h-16">
+            <div className="mx-auto    px-4 sm:px-6 lg:px-[10%] ">
+                <div className={`flex items-center justify-between h-14 mt-4 border border-slate-300/40 rounded-full px-5 
+                      ${isOpen
+                        ? "bg-[#3d3c41] opacity-100"
+                        : "bg-slate-200/20 backdrop-blur-xl"
+                    }
+                    `}>
                     {/* Logo */}
                     <div className="flex-shrink-0">
                         <a
@@ -94,8 +94,8 @@ const Navbar = () => {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:block">
-                        <div className=" flex items-center space-x-8">
+                    <div className="hidden md:block ">
+                        <div className=" flex items-center space-x-8 ">
                             {navItems.map((item) => (
                                 <a
                                     key={item.label}
@@ -119,15 +119,15 @@ const Navbar = () => {
                                     />
                                 </a>
                             ))}
-                            <a
-                                href="/contact"
-                                className={`font-semibold border-2 border-[#a855f7]/50 hover:bg-[#a855f7]/50 text-[#a855f7] py-1 rounded-full px-2 cursor-pointer duration-300 `}
-                            >
-                                Contact
-                            </a>
+
                         </div>
                     </div>
-
+                    <a
+                        href="/contact"
+                        className={`font-semibold border-2 border-[#a855f7]/50 hover:bg-[#a855f7]/50 text-[#a855f7] py-1 rounded-full px-2 cursor-pointer duration-300 `}
+                    >
+                        Contact
+                    </a>
                     {/* Mobile Menu Button */}
                     <div className="md:hidden">
                         <button
