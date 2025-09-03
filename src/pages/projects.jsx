@@ -1,4 +1,4 @@
-import React, { useEffect, memo } from "react"
+import React, { useEffect } from "react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import CardProject from "../components/CardProject";
@@ -52,6 +52,7 @@ const ProjectsPage = () => {
                 Title={project.title}
                 Description={project.description}
                 Link={project.link}
+                Stack={project.stack}
                 id={project.id}
               />
             </div>
@@ -62,4 +63,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default memo(ProjectsPage);
+export default ProjectsPage;

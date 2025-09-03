@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Landing() {
     return (
-        <div className="bg-[#a855f7]/10 w-full  md:w-2/3  rounded-xl overflow-hidden  border border-[#a855f7]/50 text-[#a855f7]"
+        <div className="bg-[#a855f7]/10  w-full  md:w-2/3  rounded-xl overflow-hidden  border border-[#a855f7]/50 text-[#a855f7]"
             data-aos="fade-left"
             data-aos-delay="1000"
         >
@@ -60,21 +60,28 @@ export default function Landing() {
                     </div>
 
                     <div className="text-gray-200">
-                        <span className="text-blue-400">hardworker</span>
+                        <span className="text-blue-400">hard_Worker</span>
                         <span className="text-gray-400"> :</span>{' '}
                         <span className="text-orange-300 font-semibold">true</span>
                         <span className="text-gray-400"> ,</span>
                     </div>
 
                     <div className="text-gray-200">
-                        <span className="text-blue-400">quickLearner</span>
+                        <span className="text-blue-400">quick_Learner</span>
                         <span className="text-gray-400"> :</span>{' '}
                         <span className="text-orange-300 font-semibold">true</span>
                         <span className="text-gray-400"> ,</span>
                     </div>
 
                     <div className="text-gray-200">
-                        <span className="text-blue-400">problemSolver</span>
+                        <span className="text-blue-400">problem_Solver</span>
+                        <span className="text-gray-400"> :</span>{' '}
+                        <span className="text-orange-300 font-semibold">true</span>
+                        <span className="text-gray-400"> ,</span>
+                    </div>
+
+                    <div className="text-gray-200">
+                        <span className="text-blue-400">Self_Learner</span>
                         <span className="text-gray-400"> :</span>{' '}
                         <span className="text-orange-300 font-semibold">true</span>
                         <span className="text-gray-400"> ,</span>

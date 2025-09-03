@@ -1,5 +1,5 @@
-import React, { useEffect, memo, useState } from "react"
-import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck, X, Fullscreen } from "lucide-react"
+import React, { useEffect, useState } from "react"
+import {  Award, X, Fullscreen } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { Titele } from "../components/Headings";
@@ -95,4 +95,4 @@ const CertificatesPage = () => {
   );
 };
 
-export default memo(CertificatesPage);
+export default CertificatesPage;

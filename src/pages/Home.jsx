@@ -1,56 +1,12 @@
-import React, { useState, useEffect, useCallback, memo } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Landing from "../components/Landing";
 
-// Memoized Components
-const StatusBadge = memo(() => (
-  <div className="inline-block animate-float mt-12 lg:mx-0" data-aos="zoom-in" data-aos-delay="400">
-    <div className="relative group">
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-      <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
-        <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
-          <Sparkles className="sm:w-4 sm:h-4 w-3 h-3 mr-2 text-blue-400" />
-          Ready to Innovate
-        </span>
-      </div>
-    </div>
-  </div>
-));
 
-const MainTitle = memo(() => (
-  <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
-    <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
-      <span className="relative inline-block">
-        <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Développeur
-        </span>
-      </span>
-      <br />
-      <span className="relative flex items-satrt md:items-center flex-col md:flex-row mt-2 ">
-        <span className="absolute -inset-5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
-        <span className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent relative w-fit h-fit   mb-3 md:mb-0 md:mr-5">
-          <span className=" absolute left-1/2 top-1/2 -translate-1/2 w-[107%] h-[107%]  -z-10 -skew-3 bg-gradient-to-r from-[#a855f7]/60 via-[#a855f7]/30 to-[#a855f7]/10   "/>
-          Junior
-        </span>
-        <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
 
-          Full Stack
-        </span>
-      </span>
-    </h1>
-  </div>
-));
-
-const TechStack = memo(({ tech }) => (
-  <div className="px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-[#a855f7]/30 text-sm text-gray-300 hover:bg-white/10 transition-colors">
-    {tech}
-  </div>
-));
-
-const CTAButton = memo(({ href, text, icon: Icon }) => (
+const Button = ({ href, text, icon: Icon }) => (
   <a href={href}>
     <button className="group relative w-[160px] cursor-pointer">
       <div className="absolute -inset-0.5 bg-gradient-to-r from-[#4f52c9] to-[#8644c5] rounded-xl opacity-30 blur-md group-hover:opacity-90 transition-all duration-700"></div>
@@ -65,9 +21,9 @@ const CTAButton = memo(({ href, text, icon: Icon }) => (
       </div>
     </button>
   </a>
-));
+);
 
-const SocialLink = memo(({ icon: Icon, link }) => (
+const SocialLink = ({ icon: Icon, link }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" >
     <button className="group relative p-3 cursor-pointer">
       <div className="relative rounded-xl  border-[#a855f7]/50 text-[#a855f7] bg-[#a855f7]/10 backdrop-blur-xl p-2 flex items-center justify-center border   transition-all duration-300">
@@ -75,13 +31,10 @@ const SocialLink = memo(({ icon: Icon, link }) => (
       </div>
     </button>
   </a>
-));
+);
 
 // Constants
-const TYPING_SPEED = 100;
-const ERASING_SPEED = 50;
-const PAUSE_DURATION = 2000;
-const WORDS = ["Web Developer", "Problem Solver", "hardworker", "quickLearner", "Full Stack Developer"];
+const WORDS = ["Web Developer", "Problem Solver", "hard worker", "quick Learner", "Full Stack Developer"];
 const TECH_STACK = ["#React", '#NEXT', "#Javascript", "#TailwindCss", "#PHP", "#LARAVEL"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/Said-Bzioui" },
@@ -123,7 +76,7 @@ const Home = () => {
         setText(prev => prev + WORDS[wordIndex][charIndex]);
         setCharIndex(prev => prev + 1);
       } else {
-        setTimeout(() => setIsTyping(false), PAUSE_DURATION);
+        setTimeout(() => setIsTyping(false),2000);
       }
     } else {
       if (charIndex > 0) {
@@ -139,7 +92,7 @@ const Home = () => {
   useEffect(() => {
     const timeout = setTimeout(
       handleTyping,
-      isTyping ? TYPING_SPEED : ERASING_SPEED
+      isTyping ? 100 : 50
     );
     return () => clearTimeout(timeout);
   }, [handleTyping]);
@@ -156,8 +109,39 @@ const Home = () => {
               data-aos="fade-right"
               data-aos-delay="200">
               <div className="space-y-4 sm:space-y-4">
-                <StatusBadge />
-                <MainTitle />
+                <div className="inline-block animate-float mt-12 lg:mx-0" data-aos="zoom-in" data-aos-delay="400">
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
+                    <div className="relative px-3 sm:px-4 py-2 rounded-full bg-black/40 backdrop-blur-xl border border-white/10">
+                      <span className="bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-transparent bg-clip-text sm:text-sm text-[0.7rem] font-medium flex items-center">
+                        <Sparkles className="sm:w-4 sm:h-4 w-3 h-3 mr-2 text-blue-400" />
+                        Ready to Innovate
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
+                  <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
+                    <span className="relative inline-block">
+                      <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
+                      <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+                        Développeur
+                      </span>
+                    </span>
+                    <br />
+                    <span className="relative flex items-satrt md:items-center flex-col md:flex-row mt-2 ">
+                      <span className="absolute -inset-5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
+                      <span className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent relative w-fit h-fit   mb-3 md:mb-0 md:mr-5">
+                        <span className=" absolute left-1/2 top-1/2 -translate-1/2 w-[107%] h-[107%]  -z-10 -skew-3 bg-gradient-to-r from-[#a855f7]/60 via-[#a855f7]/30 to-[#a855f7]/10   " />
+                        Junior
+                      </span>
+                      <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
+
+                        Full Stack
+                      </span>
+                    </span>
+                  </h1>
+                </div>
 
                 {/* Typing Effect */}
                 <div className="h-8 flex items-center" data-aos="fade-up" data-aos-delay="800">
@@ -177,14 +161,16 @@ const Home = () => {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 justify-start" data-aos="fade-up" data-aos-delay="1200">
                   {TECH_STACK.map((tech, index) => (
-                    <TechStack key={index} tech={tech} />
+                    <div key={index} className="px-3 py-1 rounded-full bg-white/5 backdrop-blur-sm border border-[#a855f7]/30 text-sm text-gray-300 hover:bg-white/10 transition-colors">
+                      {tech}
+                    </div>
                   ))}
                 </div>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-row gap-3 w-full justify-start" data-aos="fade-up" data-aos-delay="1400">
-                  <CTAButton href="#Projects" text="Projects" icon={ExternalLink} />
-                  <CTAButton href="/contact" text="Contact" icon={Mail} />
+                  <Button href="#Projects" text="Projects" icon={ExternalLink} />
+                  <Button href="/contact" text="Contact" icon={Mail} />
                 </div>
 
                 {/* Social Links */}
@@ -197,7 +183,7 @@ const Home = () => {
             </div>
 
             {/* Right Column - Optimized Lottie Animation */}
-            <div className="w-full  py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center  justify-center  mt-0 lg:mt-10"
+            <div className="w-full   py-[10%] sm:py-0 lg:w-1/2 h-auto lg:h-[600px] xl:h-[750px] relative flex items-center  justify-center  mt-0 lg:mt-20"
               data-aos="fade-left"
               data-aos-delay="600">
               <Landing />
@@ -209,4 +195,4 @@ const Home = () => {
   );
 };
 
-export default memo(Home);
+export default Home;

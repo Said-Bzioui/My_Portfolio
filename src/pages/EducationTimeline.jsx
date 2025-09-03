@@ -1,5 +1,4 @@
-// pages/About.jsx
-import { Phone, Sparkles } from "lucide-react";
+
 import Timeline from "../components/Timeline";
 import { Titele } from "../components/Headings";
 import { EDUCATIONS } from "../../lib/data";

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"; import axios from "axios";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Footer from "./footer";
 
 const contactSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
@@ -65,7 +66,7 @@ const Contact = () => {
                 </div>
 
             </div>
-            <div className="text-center lg:mt-[2%] mt-6 mb-2 sm:px-0 px-[5%]">
+            <div className="text-center lg:mt-[2%] mt-6 mb-2 sm:px-0 px-[5%] ">
                 <h2
                     data-aos="fade-up"
                     data-aos-delay="100"
@@ -126,9 +127,15 @@ const Contact = () => {
                         </div>
                         <div
                             className="text-slate-400  text-sm flex space-x-6 mx-auto ">
-                            <span className="flex items-center gap-2 py-2  px-2 bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Github className="text-[#a855f7]" /></span>
-                            <span className="flex items-center gap-2 py-2  px-2 bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Linkedin className="text-[#a855f7]" /></span>
-                            <span className="flex items-center gap-2 py-2  px-2 bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50  "><Mail className="text-[#a855f7]" /></span>
+                            <a href="https://github.com/Said-Bzioui" target="_blank" rel="noopener noreferrer" >
+                                <span className="flex items-center  p-2  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Github size={21} className="text-[#a855f7]" /></span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/said-bzioui/" target="_blank" rel="noopener noreferrer">
+                                <span className="flex items-center  p-2  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Linkedin size={21} className="text-[#a855f7]" /></span>
+                            </a>
+                            <a href="mailto:saidbzioui.contact@gmail.com">
+                                <span className="flex items-center  p-2  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Mail size={21} className="text-[#a855f7]" /></span>
+                            </a>
                         </div>
                     </div>
                     <form
@@ -276,6 +283,7 @@ const Contact = () => {
                     </div>
                 </>
             )}
+            <Footer />
         </div >
     )
 }

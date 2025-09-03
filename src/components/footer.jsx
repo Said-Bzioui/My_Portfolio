@@ -1,14 +1,42 @@
+import { Github, Linkedin, Mail } from "lucide-react";
+
 const Footer = () => {
+    const year = new Date().getFullYear()
     return (
-        <footer>
-            <center>
-                <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
-                <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
-                    © 2025{" "}
+        <div className="h-10 relative z-40" >
+            <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
+            {/* Logo */}
+            <div className="flex items-center justify-around  w-full h-full px-2 p-6 pt-3 md:mt-0">
+                <a
+                    href="#Home"
+                    className=" bg-gradient-to-r from-[#a855f7] to-[#6366f1]  flex items-center justify-center rounded-full p-0.5"
+                >
+                    <img
+                        src="https://res.cloudinary.com/datjizbe8/image/upload/v1756574635/logo_tnlhz1.jpg"
+                        alt="Profile"
+                        className="w-7 h-7 rounded-full "
+                        loading="lazy"
+                    />
+                </a>
+                <span className="block text-sm  text-gray-500 text-center ">
+                    © {year}{" "}
                     S™
                 </span>
-            </center>
-        </footer>
+                <div
+                    className="text-slate-400  text-sm flex space-x-4 md:space-x-6 ">
+                    <a href="https://github.com/Said-Bzioui" target="_blank" rel="noopener noreferrer" >
+                        <span className="flex items-center  p-1  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Github size={21} className="text-[#a855f7]" /></span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/said-bzioui/" target="_blank" rel="noopener noreferrer">
+                        <span className="flex items-center  p-1  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Linkedin size={21} className="text-[#a855f7]" /></span>
+                    </a>
+                    <a href="mailto:saidbzioui.contact@gmail.com">
+                        <span className="flex items-center  p-1  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Mail size={21} className="text-[#a855f7]" /></span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     );
 }
 

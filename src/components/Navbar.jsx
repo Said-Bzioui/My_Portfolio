@@ -3,7 +3,6 @@ import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("Home");
 
     const navItems = [
@@ -16,7 +15,6 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
             const sections = navItems.map(item => {
                 const section = document.querySelector(item.href);
                 if (section) {
@@ -147,14 +145,16 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`md:hidden h-4/5 fixed inset-0 bg-[#060122] transition-all duration-300 ease-in-out ${isOpen
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-[-100%] pointer-events-none"
+                className={`md:hidden h-3/4 fixed mt-4 w-full bg-[#07012bdc] transition-all duration-300 ease-in-out
+                     ${isOpen ?
+                        "opacity-100 translate-x-0"
+                        :
+                        "opacity-0 translate-x-[-100%] pointer-events-none"
                     }`}
                 style={{ top: "64px" }}
             >
-                <div className="flex flex-co h-full ">
-                    <div className="px-4 py-6 space-y-4 flex-1 ">
+                <div className="flex flex-col h-full px-4 py-6 space-y-4 ">
+                    <div className="space-y-4 flex-1 ">
                         {navItems.map((item, index) => (
                             <a
                                 key={item.label}
@@ -173,14 +173,14 @@ const Navbar = () => {
                                 {item.label}
                             </a>
                         ))}
-                        <a
-                            href="/contact"
-                            className={`font-semibold  bg-[#a855f7]/50 text-slate-300 hover:ring-2 ring-[#a855f7] py-2 rounded-full px-4 cursor-pointer duration-300 `}
-                        >
-                            Contact
-                        </a>
+
                     </div>
-                    
+                    <a
+                        href="/contact"
+                        className={`font-semibold  bg-[#a855f7]/50 text-slate-300 hover:ring-2 ring-[#a855f7] py-4 flex items-center justify-center  rounded-full  cursor-pointer duration-300 `}
+                    >
+                        Contact
+                    </a>
                 </div>
             </div>
         </nav>

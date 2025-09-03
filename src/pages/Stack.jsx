@@ -1,5 +1,4 @@
-import React, { useEffect, memo, useMemo } from "react"
-import { FileText, Code, Award, Globe, ArrowUpRight, Sparkles, UserCheck } from "lucide-react"
+import React, { useEffect } from "react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import TechStackIcon from "../components/TechStackIcon";
@@ -56,4 +55,4 @@ const StackPage = () => {
   );
 };
 
-export default memo(StackPage);
+export default StackPage;
