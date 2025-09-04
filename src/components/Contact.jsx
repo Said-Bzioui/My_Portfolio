@@ -152,11 +152,11 @@ const Contact = () => {
                             data-aos="fade-up"
                             data-aos-delay="500"
                             className="relative group">
-                            <User className="absolute left-4 top-[33px] w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
-                            <label htmlFor="name" className="text-slate-500 font-light">Nom Complét</label>
+                            <User className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
                             <input
                                 type="text"
                                 id="name"
+                                aria-label="Nom complet"
                                 name="name"
                                 {...register("name")}
                                 placeholder="Votre Nom"
@@ -171,12 +171,12 @@ const Contact = () => {
                             data-aos-delay="600"
                             className="relative group"
                         >
-                            <Mail className="absolute left-4 top-[33px] w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
-                            <label htmlFor="email" className="text-slate-500 font-light">Email</label>
+                            <Mail className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
 
                             <input
                                 type="email"
                                 name="email"
+                                aria-label="Email"
                                 id="email"
                                 {...register("email")}
                                 placeholder="Votre Email"
@@ -190,12 +190,12 @@ const Contact = () => {
                             data-aos-delay="700"
                             className="relative group"
                         >
-                            <MessageSquare className="absolute left-4 top-[33px] w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
-                            <label htmlFor="message" className="text-slate-500 font-light">Message</label>
+                            <MessageSquare className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
 
                             <textarea
                                 name="message"
                                 id="message"
+                                  aria-label="Message"
                                 {...register("message")}
                                 placeholder="Votre Message"
                                 className={`w-full resize-none p-2 pl-12 bg-white/10 rounded-xl border ${errors.message ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}   placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  h-[9rem] disabled:opacity-50`}
