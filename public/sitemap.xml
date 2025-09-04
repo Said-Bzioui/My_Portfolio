@@ -4,13 +4,20 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
-<url>
-  <loc>https://saidbzioui.vercel.app/</loc>
-  <lastmod>2025-09-04T12:41:23+00:00</lastmod>
-</url>
+  <url>
+    <loc>https://saidbzioui.vercel.app/</loc>
+    <lastmod>2025-09-04T12:41:23+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+<!-- Contact Page -->
+  <url>
+    <loc>https://saidbzioui.vercel.app/contact</loc>
+    <lastmod>2025-09-04T12:41:23+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 
 </urlset>
