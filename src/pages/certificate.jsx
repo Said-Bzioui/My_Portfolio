@@ -86,7 +86,7 @@ const CertificatesPage = () => {
               <img
                 className="w-full h-full object-contain rounded-lg"
                 src={selectedPhoto}
-                alt={open.Title}
+                alt="certife"
                 loading="lazy"
               />
             </div>

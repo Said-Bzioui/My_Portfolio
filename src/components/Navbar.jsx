@@ -84,7 +84,7 @@ const Navbar = () => {
                         >
                             <img
                                 src="https://res.cloudinary.com/datjizbe8/image/upload/v1756574635/logo_tnlhz1.jpg"
-                                alt="Profile"
+                                alt="logo"
                                 className="w-9 h-9 rounded-full "
                                 loading="lazy"
                             />

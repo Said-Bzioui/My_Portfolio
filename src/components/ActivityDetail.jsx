@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
-  ArrowLeft, 
+  ArrowLeft,
   ChevronRight,
   Instagram,
   Linkedin,
@@ -134,7 +134,7 @@ const ActivityDetails = () => {
                 <img
                   src={picture ? picture : activity.photo}
                   alt={activity.title}
-                                  loading="lazy"
+                  loading="lazy"
                   className="w-full md:h-96 object-contain rounded-md overflow-hidden "
                 />
                 <div className="mt-5">
@@ -144,12 +144,12 @@ const ActivityDetails = () => {
                         <CarouselItem key={i} className={`basis-1/3 md:basis-1/5 ml-1 h-20 flex items-center overflow-hidden  p-0 cursor-pointer hover:scale-105 transition-transform `}
                           onClick={() => handlePictureClick(pic)}
                         >
-                                <img
-                                  src={pic}
-                                  alt={activity.title}
-                                                  loading="lazy"
-                                  className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-purple-800' : ''} `}
-                                />
+                          <img
+                            src={pic}
+                            alt={activity.title}
+                            loading="lazy"
+                            className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-purple-800' : ''} `}
+                          />
                         </CarouselItem>
                       ))}
                     </CarouselContent>

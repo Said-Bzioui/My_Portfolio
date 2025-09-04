@@ -152,15 +152,18 @@ const Contact = () => {
                             data-aos="fade-up"
                             data-aos-delay="500"
                             className="relative group">
-                            <User className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <User className="absolute left-4 top-[33px] w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <label htmlFor="name" className="text-slate-500 font-light">Nom Complét</label>
                             <input
                                 type="text"
+                                id="name"
                                 name="name"
                                 {...register("name")}
-                                placeholder="Your Name"
+                                placeholder="Votre Nom"
                                 className={`w-full p-2 pl-12 bg-white/10 rounded-xl border ${errors.name ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"} placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50`}
 
                             />
+
                             {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
                         </div>
                         <div
@@ -168,13 +171,15 @@ const Contact = () => {
                             data-aos-delay="600"
                             className="relative group"
                         >
-                            <Mail className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <Mail className="absolute left-4 top-[33px] w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <label htmlFor="email" className="text-slate-500 font-light">Email</label>
 
                             <input
                                 type="email"
                                 name="email"
+                                id="email"
                                 {...register("email")}
-                                placeholder="Your Email"
+                                placeholder="Votre Email"
                                 className={`w-full p-2 pl-12 bg-white/10 rounded-xl border  placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50 ${errors.email ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}`}
 
                             />
@@ -185,12 +190,15 @@ const Contact = () => {
                             data-aos-delay="700"
                             className="relative group"
                         >
-                            <MessageSquare className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <MessageSquare className="absolute left-4 top-[33px] w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <label htmlFor="message" className="text-slate-500 font-light">Message</label>
+
                             <textarea
                                 name="message"
+                                id="message"
                                 {...register("message")}
-                                placeholder="Your Message"
-                                className={`w-full resize-none p-2 pl-12 bg-white/10 rounded-xl border ${errors.message ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}  placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  h-[9rem] disabled:opacity-50`}
+                                placeholder="Votre Message"
+                                className={`w-full resize-none p-2 pl-12 bg-white/10 rounded-xl border ${errors.message ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}   placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  h-[9rem] disabled:opacity-50`}
 
                             />
                             {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
