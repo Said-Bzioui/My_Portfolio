@@ -216,6 +216,7 @@ const ProjectDetails = () => {
                 <img
                   src={project.photo}
                   alt={project.title}
+                                  loading="lazy"
                   className="w-full md:h-96 object-cover rounded-md"
                 />
                 <div className="flex mt-5 space-x-2">
@@ -227,6 +228,7 @@ const ProjectDetails = () => {
                       <img
                         src={'https://res.cloudinary.com/datjizbe8/image/upload/v1756573615/dash_rilu2k.jpg'}
                         alt={project.title}
+                                        loading="lazy"
                         className={`object-cover rounded-md cursor-pointer hover:scale-105 transition-transform h-12  md:h-16  ${picture === pic ? 'ring-3 ring-purple-800' : ''}`}
                       />
                     </div>

@@ -17,6 +17,7 @@ const ActivityCard = ({ Img, Title, Description, id }) => {
             <img
               src={Img}
               alt={Title}
+                              loading="lazy"
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
             />
           </div>

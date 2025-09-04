@@ -24,6 +24,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, Stack, id }) 
           <div className="relative overflow-hidden rounded-lg  h-55">
             <img
               src={Img}
+              loading="lazy"
               alt={Title}
               className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
             />
@@ -40,13 +41,13 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, Stack, id }) 
 
             <div className='flex space-x-2'>
               {
-              
-              Stack.map((stack, i) => (
-                <div key={i} className='flex items-center  px-2 text-sm  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/10'>
-                  {stack}
-                </div>
-              ))
-              
+
+                Stack.map((stack, i) => (
+                  <div key={i} className='flex items-center  px-2 py-1 text-sm  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/10'>
+                    {stack}
+                  </div>
+                ))
+
               }
             </div>
 

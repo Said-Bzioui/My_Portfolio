@@ -134,6 +134,7 @@ const ActivityDetails = () => {
                 <img
                   src={picture ? picture : activity.photo}
                   alt={activity.title}
+                                  loading="lazy"
                   className="w-full md:h-96 object-contain rounded-md overflow-hidden "
                 />
                 <div className="mt-5">
@@ -146,6 +147,7 @@ const ActivityDetails = () => {
                                 <img
                                   src={pic}
                                   alt={activity.title}
+                                                  loading="lazy"
                                   className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-purple-800' : ''} `}
                                 />
                         </CarouselItem>

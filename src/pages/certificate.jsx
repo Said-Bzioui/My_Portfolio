@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {  Award, X, Fullscreen } from "lucide-react"
+import { Award, X, Fullscreen } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import { Titele } from "../components/Headings";
@@ -59,6 +59,7 @@ const CertificatesPage = () => {
                 <img
                   className="w-full  block object-cover"
                   src={project.photo}
+                  loading="lazy"
                   alt="Certificate"
                   style={{
                     filter: "contrast(1.10) brightness(0.8) saturate(1.1)",
@@ -86,6 +87,7 @@ const CertificatesPage = () => {
                 className="w-full h-full object-contain rounded-lg"
                 src={selectedPhoto}
                 alt={open.Title}
+                loading="lazy"
               />
             </div>
           </div>
