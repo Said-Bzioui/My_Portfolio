@@ -5,7 +5,7 @@ import 'aos/dist/aos.css'
 import { CERTIFICATES, PROJECTS } from "../../lib/data";
 import { Titele } from "../components/Headings";
 import StatusCard from "@/components/AboutStatusCard";
-
+import cvFile from '../assets/SAID_BZIOUI_CV.pdf';
 const AboutPage = () => {
 
   // Optimized AOS initialization
@@ -102,15 +102,16 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
-              <a href="/SAID_BZIOUI_CV.pdf" download className="w-full lg:w-auto">
-                <button
-                  data-aos="fade-up"
-                  data-aos-duration="800"
-                  className="w-full cursor-pointer lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
-                >
-                  <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Télécharger CV
-                </button>
+              <a
+                href={cvFile}
+                download
+                data-aos="fade-up"
+                data-aos-duration="800"
+                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+              >
+                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Télécharger CV
               </a>
+
 
               <a href="#Projects" className="w-full lg:w-auto">
                 <button
