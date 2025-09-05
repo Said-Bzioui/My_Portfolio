@@ -81,7 +81,7 @@ export default function Landing() {
                     </div>
 
                     <div className="text-gray-200">
-                        <span className="text-blue-400">Self_Learner</span>
+                        <span className="text-blue-400">Autonomie</span>
                         <span className="text-gray-400"> :</span>{' '}
                         <span className="text-orange-300 font-semibold">true</span>
                         <span className="text-gray-400"> ,</span>
