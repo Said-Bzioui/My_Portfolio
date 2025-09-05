@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react"
-import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
+import {  Mail, ExternalLink,Sparkles } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import Landing from "../components/Landing";
+import SocialLink from "@/components/SocialLinks";
 
 
 
@@ -23,24 +24,12 @@ const Button = ({ href, text, icon: Icon }) => (
   </a>
 );
 
-const SocialLink = ({ icon: Icon, link }) => (
-  <a href={link} target="_blank" rel="noopener noreferrer" >
-    <button className="group relative p-3 cursor-pointer">
-      <div className="relative rounded-xl  border-[#a855f7]/50 text-[#a855f7] bg-[#a855f7]/10 backdrop-blur-xl p-2 flex items-center justify-center border   transition-all duration-300">
-        <Icon className="w-5 h-5 text-text-[#6366f1]    transition-colors" />
-      </div>
-    </button>
-  </a>
-);
+
 
 // Constants
-const WORDS = ["Web Developer", "Problem Solver", "hard worker", "quick Learner", "Full Stack Developer"];
+const WORDS = ["Web Developer", "Problem Solver", "Autonomie", "Quick Learner", "Full Stack Developer"];
 const TECH_STACK = ["#React", '#NEXT', "#Javascript", "#TailwindCss", "#PHP", "#LARAVEL"];
-const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/Said-Bzioui" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/said-bzioui/" },
-  { icon: Instagram, link: "https://www.instagram.com/saidbzioui_1/" }
-];
+
 
 const Home = () => {
   const [text, setText] = useState("")
@@ -174,10 +163,8 @@ const Home = () => {
                 </div>
 
                 {/* Social Links */}
-                <div className=" sm:flex gap-4 justify-start" data-aos="fade-up" data-aos-delay="1600">
-                  {SOCIAL_LINKS.map((social, index) => (
-                    <SocialLink key={index} {...social} />
-                  ))}
+                <div className=" flex gap-4 justify-start" data-aos="fade-up" data-aos-delay="1600">
+                 <SocialLink/>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import SocialLink from "./SocialLinks";
 
 const Footer = () => {
     const year = new Date().getFullYear()
@@ -22,17 +23,8 @@ const Footer = () => {
                     © {year}{" "}
                     S™
                 </span>
-                <div
-                    className="text-slate-400  text-sm flex space-x-4 md:space-x-6 ">
-                    <a href="https://github.com/Said-Bzioui" target="_blank" rel="noopener noreferrer" >
-                        <span className="flex items-center  p-1  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Github size={21} className="text-[#a855f7]" /></span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/said-bzioui/" target="_blank" rel="noopener noreferrer">
-                        <span className="flex items-center  p-1  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Linkedin size={21} className="text-[#a855f7]" /></span>
-                    </a>
-                    <a href="mailto:saidbzioui.contact@gmail.com">
-                        <span className="flex items-center  p-1  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Mail size={21} className="text-[#a855f7]" /></span>
-                    </a>
+                <div className="text-slate-400  text-sm flex space-x-0 md:space-x-6 ">
+                    <SocialLink />
                 </div>
             </div>
 
