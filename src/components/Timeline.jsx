@@ -18,7 +18,7 @@ const Timeline = ({ data = [] }) => {
                         data-aos-duration="600"
                     >
                         <div className="w-full md:w-1/2 relative p-3  rounded-lg border border-[#a855f7]/50 text-[#a855f7] bg-[#a855f7]/10 transition-all duration-300 ease-in-out  cursor-pointer shadow-lg hover:shadow-xl">
-                            {/* العنوان والنص */}
+                            {/* title*/}
                             <h3 className="text-[#6366f1] font-bold  mb-2">
                                 {item.title}
                             </h3>
@@ -26,7 +26,7 @@ const Timeline = ({ data = [] }) => {
                                 {item.description}
                                 <span className="py-0.5 px-2 mx-3 whitespace-nowrap rounded-lg text-xs bg-[#a855f7]/20 text-[#a855f7]/80">{item.date}</span>
                             </p>
-                            {/* النقطة على الخط */}
+                            {/* point*/}
                             <span
                                 className={`hidden md:flex justify-center items-center absolute top-1/2 w-3 h-3   bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full transform -translate-y-1/2 ${item.side === "left"
                                     ? "-right-[23px]"
@@ -38,7 +38,7 @@ const Timeline = ({ data = [] }) => {
                                 ></span>
                             </span>
 
-                            {/* المثلث الصغير */}
+                            {/* triangle*/}
                             <span
                                 className={`hidden md:block absolute top-1/2 border-[10px] transform -translate-y-1/2 ${item.side === "left"
                                     ? "right-[-20px] border-y-transparent border-r-transparent border-l-[#a855f7]/50"
@@ -57,7 +57,7 @@ const Timeline = ({ data = [] }) => {
                         data-aos-duration="600"
                     >
                         <div className="w-full md:w-1/2 relative p-3  rounded-lg border border-[#a855f7]/50 text-[#a855f7] bg-[#a855f7]/10 transition-all duration-300 ease-in-out  cursor-pointer shadow-lg hover:shadow-xl">
-                            {/* العنوان والنص */}
+ 
                             <h3 className="text-[#6366f1] font-bold  mb-2">
                                 {item.title}
                             </h3>
@@ -65,7 +65,6 @@ const Timeline = ({ data = [] }) => {
                                 {item.description}
                                 <span className="py-0.5 px-2 mx-3 whitespace-nowrap rounded-lg text-xs bg-[#a855f7]/20 text-[#a855f7]/80">{item.date}</span>
                             </p>
-                            {/* النقطة على الخط */}
                             <span
                                 className={`md:hidden justify-center items-center absolute top-1/2 w-3 h-3   bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-full transform -translate-y-1/2 -left-[23px] `}
                             >
@@ -74,7 +73,6 @@ const Timeline = ({ data = [] }) => {
                                 ></span>
                             </span>
 
-                            {/* المثلث الصغير */}
                             <span
                                 className={`md:hidden absolute top-1/2 border-[10px] transform -translate-y-1/2 left-[-20px] border-y-transparent border-l-transparent border-r-[#a855f7]/50`}
                             ></span>
