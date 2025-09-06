@@ -39,7 +39,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, Stack, id }) 
               {Description}
             </p>
 
-            <div className='flex space-x-2'>
+            <div className='flex flex-wrap gap-y-2 space-x-2'>
               {
 
                 Stack.map((stack, i) => (
