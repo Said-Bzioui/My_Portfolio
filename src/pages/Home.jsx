@@ -91,7 +91,7 @@ const Home = () => {
   return (
     <div className=" min-h-screen bg-[#030014] mt-5 md:mt-0 overflow-hidden" id="Home">
       <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
-        <div className="container mx-auto px-[5%] sm:px-6 lg:px-[0%] md:min-h-screen">
+        <div className="container mx-auto  px-[5%] sm:px-6 lg:px-[0%] md:min-h-screen">
           <div className="flex flex-col lg:flex-row items-center justify-center md:h-screen  gap-0 ">
             {/* Left Column */}
             <div className="w-full lg:w-1/2 space-y-8 sm:space-y-12 text-left lg:text-left mt-5 lg:mt-10"
@@ -122,11 +122,7 @@ const Home = () => {
                       <span className="absolute -inset-5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
                       <span className="bg-gradient-to-r from-white via-blue-200 to-blue-400 bg-clip-text text-transparent relative w-fit h-fit   mb-3 md:mb-0 md:mr-5">
                         <span className=" absolute left-1/2 top-1/2 -translate-1/2 w-[107%] h-[107%]  -z-10 -skew-3 bg-gradient-to-r from-[#a855f7]/60 via-[#a855f7]/30 to-[#a855f7]/10   " />
-                        Junior
-                      </span>
-                      <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-
-                        Full Stack
+                           Full Stack
                       </span>
                     </span>
                   </h1>

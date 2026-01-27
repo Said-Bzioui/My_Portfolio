@@ -20,7 +20,7 @@ import Contact from './components/Contact'
 function Portfolio() {
   return (
     <>
-      <OpenTo />
+      {/* <OpenTo /> */}
       <AnimatedBackground />
       <Navbar />
       <Home />

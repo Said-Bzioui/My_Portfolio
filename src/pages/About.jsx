@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { FileText, Code, Award, Globe } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
-import { CERTIFICATES, PROJECTS } from "../../lib/data";
+import { CERTIFICATES, EXPERIANCES_TIME, PROJECTS } from "../../lib/data";
 import { Titele } from "../components/Headings";
 import StatusCard from "@/components/AboutStatusCard";
 import cvFile from '../assets/SAID_BZIOUI_CV.pdf';
@@ -37,7 +37,7 @@ const AboutPage = () => {
       icon: Code,
       color: "from-[#6366f1] to-[#a855f7]",
       href: "#Projects",
-      value: PROJECTS.length,
+      value: `${PROJECTS.length} +`,
       label: "Total des projets",
       description: "Solutions web innovantes",
       animation: "fade-right",
@@ -54,7 +54,7 @@ const AboutPage = () => {
     {
       icon: Globe,
       color: "from-[#6366f1] to-[#a855f7]",
-      value: 0,
+      value: EXPERIANCES_TIME() || 0,
       href: "#Experiences",
       label: "Années d'expérience",
       description: "Parcours d'apprentissage continu",
@@ -67,7 +67,7 @@ const AboutPage = () => {
       className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
       id="About"
     >
-      <Titele head="About Me" paragraph="Transforming Ideas Into Digital Experiences" />
+      <Titele head="À propos de moi" paragraph="Transformer les idées en expériences numériques" />
 
       <div className="w-full mx-auto pt-8 sm:pt-12 relative">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">

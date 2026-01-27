@@ -1,6 +1,0 @@
-# Allow all crawlers
-User-agent: *
-Allow: /
-
-# Sitemap 
-Sitemap: https://saidbzioui.vercel.app/sitemap.xml
