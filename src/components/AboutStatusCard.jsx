@@ -1,46 +1,20 @@
 import { ArrowUpRight } from "lucide-react";
 
-const StatusCard = ({ icon: Icon, color, href, value, label, description, animation }) => (
-    <a href={href} data-aos={animation} data-aos-duration={1300} className="relative group">
-        <div className="relative z-10 bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 border border-white/10 overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col justify-between">
-            <div className={`absolute -z-10 inset-0 bg-gradient-to-br ${color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-
-            <div className="flex items-center justify-between mb-4">
-                <div className="w-16 h-16 rounded-full flex items-center justify-center bg-white/10 transition-transform group-hover:rotate-6">
-                    <Icon className="w-8 h-8 text-white" />
-                </div>
-                <span
-                    className="text-4xl font-bold text-white"
-                    data-aos="fade-up-left"
-                    data-aos-duration="1500"
-                    data-aos-anchor-placement="top-bottom"
-                >
-                    {value}
-                </span>
-            </div>
-            <div>
-                <p
-                    className="text-sm uppercase tracking-wider text-gray-300 mb-2"
-                    data-aos="fade-up"
-                    data-aos-duration="800"
-                    data-aos-anchor-placement="top-bottom"
-                >
-                    {label}
-                </p>
-                <div className="flex items-center justify-between">
-                    <p
-                        className="text-xs text-gray-400"
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-anchor-placement="top-bottom"
-                    >
-                        {description}
-                    </p>
-                    <ArrowUpRight className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
-                </div>
-            </div>
-        </div>
-    </a>
+const StatusCard = ({ icon: Icon, href, value, label, description }) => (
+  <a
+    href={href}
+    className="group flex h-full flex-col rounded-2xl border border-white/10 bg-card p-6 transition-colors hover:border-primary/40 hover:bg-surface-raised focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:p-7"
+  >
+    <div className="mb-6 flex items-center justify-between">
+      <span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary-light">
+        <Icon className="size-5" aria-hidden="true" />
+      </span>
+      <ArrowUpRight className="size-5 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary-light" aria-hidden="true" />
+    </div>
+    <span className="text-5xl font-semibold tracking-tight text-foreground tabular-nums">{value}</span>
+    <p className="mt-3 text-sm font-medium text-foreground">{label}</p>
+    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{description}</p>
+  </a>
 );
 
-export default StatusCard
+export default StatusCard;

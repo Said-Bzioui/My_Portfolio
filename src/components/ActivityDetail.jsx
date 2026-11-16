@@ -1,11 +1,7 @@
+import { Instagram, Linkedin } from "./brand-icons";
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import {
-  ArrowLeft,
-  ChevronRight,
-  Instagram,
-  Linkedin,
-} from "lucide-react";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import { PARASCOLAIRRE } from "../../lib/data";
 import {
   Carousel,
@@ -21,15 +17,15 @@ const ProjectStats = ({ project }) => {
 
   return (
     <div className="p-3 md:p-4  rounded-xl overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-50 blur-2xl z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-ember/20 to-burgundy/20 opacity-50 blur-2xl z-0" />
       <div className="flex gap-3 ">
         <a
           href={project.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="group cursor-pointer relative inline-flex items-center space-x-1.5 md:space-x-2 px-2 md:px-4 py-2 bg-gradient-to-r from-blue-600/10 to-purple-600/10 hover:from-blue-600/20 hover:to-purple-600/20 text-blue-300 rounded-xl transition-all duration-300 border border-blue-500/20 hover:border-blue-500/40 backdrop-blur-xl overflow-hidden text-sm md:text-base"
+          className="group cursor-pointer relative inline-flex items-center space-x-1.5 md:space-x-2 px-2 md:px-4 py-2 bg-gradient-to-r from-primary-deep/10 to-secondary-deep/10 hover:from-primary-deep/20 hover:to-secondary-deep/20 text-primary-soft rounded-xl transition-all duration-300 border border-primary/20 hover:border-primary/40 backdrop-blur-xl overflow-hidden text-sm md:text-base"
         >
-          <div className="absolute w-full inset-0 translate-y-[100%] bg-gradient-to-r from-blue-600/10 to-purple-600/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
+          <div className="absolute w-full inset-0 translate-y-[100%] bg-gradient-to-r from-primary-deep/10 to-secondary-deep/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
           <Linkedin className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
           <span className="relative font-base">LinkedIn</span>
         </a>
@@ -38,9 +34,9 @@ const ProjectStats = ({ project }) => {
           href={project.instagram}
           target="_blank"
           rel="noopener noreferrer"
-          className="group cursor-pointer relative inline-flex items-center space-x-1.5 md:space-x-2 px-2 md:px-4 py-2 bg-gradient-to-r from-purple-600/10 to-pink-600/10 hover:from-purple-600/20 hover:to-pink-600/20 text-purple-300 rounded-xl transition-all duration-300 border border-purple-500/20 hover:border-purple-500/40 backdrop-blur-xl overflow-hidden text-sm md:text-base"
+          className="group cursor-pointer relative inline-flex items-center space-x-1.5 md:space-x-2 px-2 md:px-4 py-2 bg-gradient-to-r from-secondary-deep/10 to-secondary-deep/10 hover:from-secondary-deep/20 hover:to-secondary-deep/20 text-secondary-soft rounded-xl transition-all duration-300 border border-secondary/20 hover:border-secondary/40 backdrop-blur-xl overflow-hidden text-sm md:text-base"
         >
-          <div className="absolute w-full inset-0 translate-y-[100%] bg-gradient-to-r from-purple-600/10 to-pink-600/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
+          <div className="absolute w-full inset-0 translate-y-[100%] bg-gradient-to-r from-secondary-deep/10 to-secondary-deep/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
           <Instagram className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
           <span className="relative font-base">Instagram</span>
         </a>
@@ -53,21 +49,19 @@ const ProjectStats = ({ project }) => {
 const ActivityDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [activity, setActivity] = useState(null);
+  const activity = PARASCOLAIRRE.find((p) => String(p.id) === id);
   const [picture, setPicture] = useState();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const selectedActivity = PARASCOLAIRRE.find((p) => String(p.id) === id);
-    setActivity(selectedActivity);
 
   }, [id]);
 
   if (!activity) {
     return (
-      <div className="min-h-screen bg-[#030014] flex items-center justify-center">
+      <div className="min-h-screen bg-page-background flex items-center justify-center">
         <div className="text-center space-y-6 animate-fadeIn">
-          <div className="w-16 h-16  mx-auto border-8 border-blue-500/30 border-t-purple-700 rounded-full animate-spin" />
+          <div className="w-16 h-16  mx-auto border-8 border-primary/30 border-t-secondary-deep rounded-full animate-spin" />
         </div>
       </div>
     );
@@ -83,9 +77,9 @@ const ActivityDetails = () => {
       {/* Background animations remain unchanged */}
       <div className="fixed inset-0">
         <div className="absolute -inset-[10px] opacity-20">
-          <div className="absolute top-0 -left-4 w-72 md:w-96 h-72 md:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
-          <div className="absolute top-0 -right-4 w-72 md:w-96 h-72 md:h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
-          <div className="absolute -bottom-8 left-20 w-72 md:w-96 h-72 md:h-96 bg-purple-800  rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" />
+          <div className="absolute top-0 -left-4 w-72 md:w-96 h-72 md:h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
+          <div className="absolute top-0 -right-4 w-72 md:w-96 h-72 md:h-96 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
+          <div className="absolute -bottom-8 left-20 w-72 md:w-96 h-72 md:h-96 bg-burgundy  rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" />
         </div>
       </div>
 
@@ -109,17 +103,17 @@ const ActivityDetails = () => {
           <div className="grid lg:grid-cols-2 items-center gap-8 md:gap-16">
             <div className="space-y-6 md:space-y-10 animate-slideInLeft">
               <div className="space-y-2 md:space-y-4">
-                <h1 className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-blue-300 via-purple-200 to-purple-500 bg-clip-text text-transparent  ">
+                <h1 className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-primary-soft via-secondary-pale to-secondary bg-clip-text text-transparent  ">
                   {activity.title}
                 </h1>
                 <div className="relative h-1 w-21 md:w-45">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-sm" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full animate-pulse" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-sm" />
                 </div>
               </div>
 
               <div className="prose prose-invert max-w-none">
-                <p className="text-base md:text-lg text-gray-300/90 leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground/90 leading-relaxed">
                   {activity.description}
                 </p>
               </div>
@@ -147,7 +141,7 @@ const ActivityDetails = () => {
                             src={pic}
                             alt={activity.title}
                             loading="lazy"
-                            className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-purple-800' : ''} `}
+                            className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-burgundy' : ''} `}
                           />
                         </CarouselItem>
                       ))}

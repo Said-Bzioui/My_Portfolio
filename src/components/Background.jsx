@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from "react"
 
-const AnimatedBackground = () => {
-	const blobRefs = useRef([])
-	const initialPositions = [
+const initialPositions = [
 		{ x: -4, y: 0 },
 		{ x: -4, y: 0 },
 		{ x: 20, y: -8 },
 		{ x: 20, y: -8 },
 	]
+
+const AnimatedBackground = () => {
+	const blobRefs = useRef([])
+
 
 	useEffect(() => {
 		let currentScroll = window.pageYOffset
@@ -44,13 +46,13 @@ const AnimatedBackground = () => {
 	}, [])
 
 	return (
-		<div className="fixed inset-0">
+		<div className="pointer-events-none fixed inset-0" aria-hidden="true">
 			<div className="absolute inset-0">
 				{[
-					"bg-purple-500",
-					"bg-cyan-500",
-					"bg-blue-500",
-					"bg-blue-500",
+					"bg-secondary",
+					"bg-primary",
+					"bg-primary",
+					"bg-primary",
 				].map((color, i) => (
 					<div
 						key={i}
@@ -66,12 +68,12 @@ const AnimatedBackground = () => {
 					/>
 				))}
 			</div>
-			<div className="absolute inset-0">
+			<div className="absolute inset-0 opacity-40">
 				<div className="absolute inset-0 
-    bg-gradient-to-r from-[#4f4f4f10] from-[1px] to-transparent to-[1px]
+    bg-gradient-to-r from-grid-line from-[1px] to-transparent to-[1px]
     bg-[length:24px_24px]" />
 				<div className="absolute inset-0 
-    bg-gradient-to-b from-[#4f4f4f10] from-[1px] to-transparent to-[1px]
+    bg-gradient-to-b from-grid-line from-[1px] to-transparent to-[1px]
     bg-[length:24px_24px]" />
 			</div>
 

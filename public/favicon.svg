@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs><clipPath id="c"><circle cx="256" cy="256" r="256"/></clipPath></defs>
+  <g clip-path="url(#c)">
+    <rect width="512" height="512" fill="#EDEDED"/>
+    <g transform="translate(256 256) scale(1.3) translate(-192.5 -203.5)" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1.2" stroke-linejoin="round">
+      <!-- top shield left half + S upper curve -->
+      <path d="M113,118 L192,90 L237,106 L237,148 L192,126 L148,148 L148,160 Q148,178 172,178 L212,178 Q272,178 272,225 L272,235 L237,232 Q237,206 205,206 L165,206 Q113,206 113,165 Z"/>
+      <!-- top right shoulder -->
+      <path d="M237,106 L272,118 L272,188 L237,168 Z"/>
+      <!-- bottom V -->
+      <path d="M113,198 L148,232 L192,270 L237,232 L272,235 L192,317 L113,232 Z"/>
+    </g>
+  </g>
+</svg>

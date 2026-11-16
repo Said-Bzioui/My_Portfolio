@@ -1,58 +1,37 @@
-import React, { useEffect } from "react"
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import TechStackIcon from "../components/TechStackIcon";
+import { Marquee } from "@/components/ui/marquee";
 import { STACK } from "../../lib/data";
 import { Titele } from "../components/Headings";
 
+const stackRows = [STACK.slice(0, Math.ceil(STACK.length / 2)), STACK.slice(Math.ceil(STACK.length / 2))];
 
-const StackPage = () => {
-  // Optimized AOS initialization
-  useEffect(() => {
-    const initAOS = () => {
-      AOS.init({
-        once: false,
-      });
-    };
-
-    initAOS();
-
-    // Debounced resize handler
-    let resizeTimer;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(initAOS, 250);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimer);
-    };
-  }, []);
-
-  return (
-    <div
-      className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%]  "
-      id="Tech_Stack"
-    >
-      <Titele head="Mon Tech Stack" paragraph="Utilisez des Frameworks  et des outils modernes pour développer rapidement" />
-      <div className="container mx-auto flex justify-center items-center overflow-hidden">
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-          {STACK.map((item, index) => (
-            <div
-              className="py-2"
-              key={item.id}
-              data-aos={index % 4 === 0 ? "fade-up-right" : index % 4 === 1 ? "fade-up" : "fade-up-left"}
-              data-aos-duration={index % 4 === 0 ? "1000" : index % 4 === 1 ? "1200" : "1000"}
-            >
+const StackPage = () => (
+  <section
+    className="relative scroll-mt-24 overflow-hidden px-[5%] pb-[10%] text-foreground lg:px-[10%]"
+    id="Tech_Stack"
+    aria-label="Mes outils de développement"
+  >
+    <Titele head="Mes outils de développement" paragraph="Les langages, frameworks et outils que j’utilise." />
+    <div className="container mx-auto mt-8 space-y-4 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] motion-reduce:[mask-image:none]">
+      {stackRows.map((row, index) => (
+        <Marquee
+          key={index}
+          reverse={index === 1}
+          pauseOnHover
+          repeat={3}
+          tabIndex={0}
+          aria-label={`Outils de développement, ligne ${index + 1}. Défilement en pause au survol ou au focus.`}
+          className="rounded-2xl outline-offset-4 focus-visible:outline-2 focus-visible:outline-primary [--duration:45s] [--gap:1rem]"
+        >
+          {row.map((item) => (
+            <div key={item.id} className="w-32 shrink-0 py-2 sm:w-40">
               <TechStackIcon TechStackIcon={item.photo} Language={item.title} />
             </div>
           ))}
-        </div>
-      </div>
+        </Marquee>
+      ))}
     </div>
-  );
-};
+  </section>
+);
 
 export default StackPage;

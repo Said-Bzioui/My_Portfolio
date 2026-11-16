@@ -1,175 +1,110 @@
-import React, { useEffect } from "react"
-import { FileText, Code, Award, Globe } from "lucide-react"
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import { CERTIFICATES, EXPERIANCES_TIME, PROJECTS } from "../../lib/data";
-import { Titele } from "../components/Headings";
+import { useEffect } from "react";
+import { ArrowUpRight, FileText, Code, Award, Globe } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { CERTIFICATES, PROJECTS } from "../../lib/data";
 import StatusCard from "@/components/AboutStatusCard";
-import cvFile from '../assets/SAID_BZIOUI_CV.pdf';
+import cvFile from "../assets/CV-BZIOUI_SAID_FULLSTACK.pdf";
+
 const AboutPage = () => {
-
-  // Optimized AOS initialization
   useEffect(() => {
-    const initAOS = () => {
-      AOS.init({
-        once: false,
-      });
-    };
-
-    initAOS();
-
-    // Debounced resize handler
-    let resizeTimer;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(initAOS, 250);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimer);
-    };
+    AOS.init({ once: true });
   }, []);
 
   const statsData = [
     {
       icon: Code,
-      color: "from-[#6366f1] to-[#a855f7]",
       href: "#Projects",
       value: `${PROJECTS.length} +`,
       label: "Total des projets",
-      description: "Solutions web innovantes",
-      animation: "fade-right",
+      description: "Sites et applications web",
     },
     {
       icon: Award,
-      color: "from-[#a855f7] to-[#6366f1]",
-      value: CERTIFICATES.length,
       href: "#Certificates",
+      value: CERTIFICATES.length,
       label: "Certificats",
-      description: "Compétences professionnelles validées",
-      animation: "fade-up",
+      description: "Certificats de formation",
     },
     {
       icon: Globe,
-      color: "from-[#6366f1] to-[#a855f7]",
-      value: EXPERIANCES_TIME() || 0,
       href: "#Experiences",
-      label: "Années d'expérience",
-      description: "Parcours d'apprentissage continu",
-      animation: "fade-left",
+      value: "1+",
+      label: "An d’expérience professionnelle",
+      description: "Applications web et solutions SaaS",
     },
   ];
 
   return (
-    <div
-      className="h-auto pb-[10%] text-white overflow-hidden px-[5%] sm:px-[5%] lg:px-[10%] mt-10 sm-mt-0"
+    <section
       id="About"
+      aria-labelledby="about-title"
+      className="relative scroll-mt-24 px-[5%] py-20 text-foreground sm:py-28 lg:px-[10%]"
     >
-      <Titele head="À propos de moi" paragraph="Transformer les idées en expériences numériques" />
+      <div className="relative mx-auto max-w-7xl">
 
-      <div className="w-full mx-auto pt-8 sm:pt-12 relative">
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="space-y-6 text-center lg:text-left">
-            <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold"
-              data-aos="fade-right"
-              data-aos-duration="1000"
-            >
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
-                Bonjour, je suis
-              </span>
-              <span
-                className="block mt-2 text-gray-200 text-4xl"
-                data-aos="fade-right"
-                data-aos-duration="1300"
-              >
-                SAID BZIOUI
-              </span>
-            </h2>
-
-            <p
-              className="text-base sm:text-lg lg:text-xl text-gray-400 leading-relaxed text-justify pb-4 sm:pb-0"
-              data-aos="fade-right"
-              data-aos-duration="1500"
-            >
-              Je suis titulaire d’un diplôme en développement digital,
-              spécialisé en développement web full stack,
-              et je suis passionné par le développement front-end et back-end.
-              Je me concentre sur la création d’expériences numériques engageantes et
-              je m’efforce toujours de fournir les meilleures solutions pour chaque projet.
+        <div className="grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-16 xl:gap-24">
+          <div data-aos="fade-up">
+            <p className="mb-4 text-sm font-medium text-muted-foreground sm:text-base">
+              Bonjour, je suis SAID BZIOUI
             </p>
+            <h2 id="about-title" className="max-w-xl text-4xl font-semibold leading-[1.12] tracking-tight sm:text-5xl xl:text-6xl">
+              De l’architecture{" "}
+              <span className="text-primary">à la production.</span>
+            </h2>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {["React & Next.js", "Laravel & FastAPI", "Supabase", "Docker & VPS", "Intégration d’IA"].map((specialty) => (
+                <span key={specialty} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-foreground/80">
+                  {specialty}
+                </span>
+              ))}
+            </div>
+          </div>
 
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
+          <div className="flex flex-col justify-center lg:border-l lg:border-white/10 lg:pl-10 xl:pl-12" data-aos="fade-up" data-aos-delay="100">
+            <p className="text-lg leading-relaxed text-foreground/90 sm:text-xl">
+              Développeur full stack avec plus d’un an d’expérience professionnelle,
+              je conçois et déploie des applications web et des solutions SaaS.
+              Je prends en charge l’architecture, les interfaces et le back-end,
+              jusqu’à la mise en production.
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              Chez Wave Digital Agency à Kénitra, j’ai conçu et développé seul
+              Switchlab, une plateforme d’accompagnement sportif et nutritionnel,
+              et Chiffrage.ai, qui analyse des documents BTP avec l’IA.
+              J’ai aussi contribué à Solimage et Effical, en travaillant sur
+              l’intégration d’IA, la maintenance et les fonctionnalités métier.
+            </p>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+              Diplômé en développement digital, option full stack, à la CMC de Tamesna,
+              je suis également certifié L’Hybride Praticien (2026) en IA appliquée,
+              automatisation des workflows et acquisition digitale.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
                 href={cvFile}
                 download
-                data-aos="fade-up"
-                data-aos-duration="800"
-                className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg bg-gradient-to-r from-[#6366f1] to-[#a855f7] text-white font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 shadow-lg hover:shadow-xl animate-bounce-slow"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-deep focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
               >
-                <FileText className="w-4 h-4 sm:w-5 sm:h-5" /> Télécharger CV
+                <FileText className="size-4" aria-hidden="true" />
+                Télécharger CV
               </a>
-
-
-              <a href="#Projects" className="w-full lg:w-auto">
-                <button
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  className="w-full lg:w-auto sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-105 flex items-center justify-center lg:justify-start gap-2 bg-[#a855f7]/10 animate-bounce-slow delay-200"
-                >
-                  <Code className="w-4 h-4 sm:w-5 sm:h-5" /> Voir Les Projets
-                </button>
+              <a
+                href="#Projects"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-white/15 px-6 py-3 text-sm font-medium transition-colors hover:border-primary/50 hover:bg-primary/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+              >
+                Voir les projets
+                <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
               </a>
-            </div>
-          </div>
-          <div className="flex justify-end items-center sm:p-12 sm:py-0 sm:pb-0 p-0 py-2 pb-2">
-            <div
-              className="relative group"
-              data-aos="fade-left"
-              data-aos-duration="1000"
-            >
-              {/* Optimized gradient backgrounds with reduced complexity for mobile */}
-              <div className="absolute -inset-6 opacity-[25%] z-0 hidden sm:block">
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 via-indigo-500 to-purple-600 rounded-full blur-2xl animate-spin-slower" />
-                <div className="absolute inset-0 bg-gradient-to-l from-fuchsia-500 via-rose-500 to-pink-600 rounded-full blur-2xl animate-pulse-slow opacity-50" />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600 via-cyan-500 to-teal-400 rounded-full blur-2xl animate-float opacity-50" />
-              </div>
-
-              <div className="relative">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-xl overflow-hidden shadow-[0_0_40px_rgba(120,119,198,0.3)] transform transition-all duration-700 group-hover:scale-105">
-                  <div className="absolute inset-0 border-4 border-white/20 rounded-xl z-20 transition-all duration-700 group-hover:border-white/40 group-hover:scale-105" />
-
-                  <img
-                    src="https://res.cloudinary.com/datjizbe8/image/upload/v1756574743/photo_cmw5f4.jpg"
-                    alt="Profile"
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
-                    loading="lazy"
-                  />
-
-                  {/* Advanced hover effects - desktop only */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700 z-20 hidden sm:block">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-white/10 to-transparent transform translate-y-full group-hover:-translate-y-full transition-transform duration-1000 delay-100" />
-                    <div className="absolute inset-0 rounded-full border-8 border-white/10 scale-0 group-hover:scale-100 transition-transform duration-700 animate-pulse-slow" />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        <div >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 cursor-pointer">
-            {statsData?.map((stat) => (
-              <StatusCard key={stat.label} {...stat} />
-            ))}
-          </div>
+        <div className="mt-12 grid gap-4 border-t border-white/10 pt-8 sm:mt-16 sm:grid-cols-3 sm:pt-10">
+          {statsData.map((stat) => <StatusCard key={stat.label} {...stat} />)}
         </div>
       </div>
-
-    </div>
+    </section>
   );
 };
 

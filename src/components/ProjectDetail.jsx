@@ -1,328 +1,171 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import {
-  ArrowLeft, ExternalLink, Github, Code2, Star,
-  ChevronRight, Layers, Layout, Globe, Package, Cpu, Code,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, ChevronLeft, ChevronRight, Code2, ExternalLink, FileImage, FolderOpen, Layers, X, ZoomIn, ZoomOut } from "lucide-react";
+import Github from "@thesvg/react/github";
 import { PROJECTS } from "../../lib/data";
-// import Swal from 'sweetalert2';
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
 
-const TECH_ICONS = {
-  React: Globe,
-  Tailwind: Layout,
-  Express: Cpu,
-  Python: Code,
-  Javascript: Code,
-  HTML: Code,
-  CSS: Code,
-  default: Package,
-};
-
-const TechBadge = ({ tech }) => {
-  const Icon = TECH_ICONS[tech] || TECH_ICONS["default"];
-
+function ProjectImage({ src, alt, className, eager = false }) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
   return (
-    <div className="group relative overflow-hidden px-3 py-2 md:px-4 md:py-2.5 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-xl border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 cursor-default">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-500" />
-      <div className="relative flex items-center gap-1.5 md:gap-2">
-        <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-400 group-hover:text-blue-300 transition-colors" />
-        <span className="text-xs md:text-sm font-medium text-blue-300/90 group-hover:text-blue-200 transition-colors">
-          {tech}
+    <>
+      {!loaded && !failed && <span aria-hidden="true" className="absolute inset-0 bg-white/5 motion-safe:animate-pulse" />}
+      {failed ? (
+        <span className="flex min-h-32 w-full flex-col items-center justify-center gap-3 px-4 py-10 text-sm text-muted-foreground">
+          <FileImage className="size-8" aria-hidden="true" /> Aperçu indisponible
         </span>
-      </div>
-    </div>
+      ) : (
+        <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" onLoad={() => setLoaded(true)} onError={() => setFailed(true)} className={className} />
+      )}
+    </>
   );
-};
+}
 
-const FeatureItem = ({ feature }) => {
-  return (
-    <li className="group flex items-start space-x-3 p-2.5 md:p-3.5 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
-      <div className="relative mt-2">
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-full blur group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
-        <div className="relative w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 group-hover:scale-125 transition-transform duration-300" />
-      </div>
-      <span className="text-sm md:text-base text-gray-300 group-hover:text-white transition-colors">
-        {feature}
-      </span>
-    </li>
-  );
-};
-
-const ProjectStats = ({ project }) => {
-  const techStackCount = project?.stack?.length || 0;
-  const featuresCount = project?.Features?.length || 0;
-
-  return (
-    <div className="p-3 md:p-4  rounded-xl overflow-hidden relative">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20 opacity-50 blur-2xl z-0" />
-
-      <div className="flex justify-between mb-4 md:mb-6 gap-3 md:gap-4">
-        <div className="grow relative z-10 flex items-center space-x-2 md:space-x-3 bg-white/5 p-2 md:p-3 rounded-lg border border-blue-500/20 transition-all duration-300 hover:scale-105 hover:border-blue-500/50 hover:shadow-lg">
-          <div className="bg-blue-500/20 p-1.5 md:p-2 rounded-full">
-            <Code2 className="text-blue-300 w-4 h-4 md:w-6 md:h-6" strokeWidth={1.5} />
-          </div>
-          <div className="grow">
-            <div className="text-lg md:text-xl font-semibold text-blue-200">{techStackCount}</div>
-            <div className="text-[10px] md:text-xs text-gray-400">Technologies</div>
-          </div>
-        </div>
-
-        <div className="grow relative z-10 flex items-center space-x-2 md:space-x-3 bg-white/5 p-2 md:p-3 rounded-lg border border-purple-500/20 transition-all duration-300 hover:scale-105 hover:border-purple-500/50 hover:shadow-lg">
-          <div className="bg-purple-500/20 p-1.5 md:p-2 rounded-full">
-            <Layers className="text-purple-300 w-4 h-4 md:w-6 md:h-6" strokeWidth={1.5} />
-          </div>
-          <div className="flex-grow">
-            <div className="text-lg md:text-xl font-semibold text-purple-200">{featuresCount}</div>
-            <div className="text-[10px] md:text-xs text-gray-400">Features</div>
-          </div>
-        </div>
-      </div>
-      <div className="flex justify-center w-full gap-3 md:gap-4">
-        {/* Action buttons */}
-        <div className="flex gap-3 ">
-          {project.link &&
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group cursor-pointer relative inline-flex items-center space-x-1.5 md:space-x-2 px-2 md:px-4 py-2 bg-gradient-to-r from-blue-600/10 to-purple-600/10 hover:from-blue-600/20 hover:to-purple-600/20 text-blue-300 rounded-xl transition-all duration-300 border border-blue-500/20 hover:border-blue-500/40 backdrop-blur-xl overflow-hidden text-sm md:text-base"
-            >
-              <div className="absolute w-full inset-0 translate-y-[100%] bg-gradient-to-r from-blue-600/10 to-purple-600/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
-              <ExternalLink className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
-              <span className="relative font-base">Live Demo</span>
-            </a>
-
-          }
-          {
-            project.github &&
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group cursor-pointer relative inline-flex items-center space-x-1.5 md:space-x-2 px-2 md:px-4 py-2 bg-gradient-to-r from-purple-600/10 to-pink-600/10 hover:from-purple-600/20 hover:to-pink-600/20 text-purple-300 rounded-xl transition-all duration-300 border border-purple-500/20 hover:border-purple-500/40 backdrop-blur-xl overflow-hidden text-sm md:text-base"
-            >
-              <div className="absolute w-full inset-0 translate-y-[100%] bg-gradient-to-r from-purple-600/10 to-pink-600/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
-              <Github className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
-              <span className="relative font-base">Github</span>
-            </a>
-          }
-
-        </div>
-
-
-      </div>
-
-    </div>
-  );
-};
-
-
-const ProjectDetails = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [project, setProject] = useState(null);
-  const [picture, setPicture] = useState();
+function ProjectGallery({ project }) {
+  const images = [...new Set([project.photo, ...(project.pictures || [])].filter(Boolean))];
+  const [index, setIndex] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
+  const dialogRef = useRef(null);
+  const closeRef = useRef(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const selectedProject = PROJECTS.find((p) => String(p.id) === id);
-    setProject(selectedProject);
+    if (!open) return;
+    const dialog = dialogRef.current;
+    const overflow = document.body.style.overflow;
+    dialog.showModal();
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+    return () => { dialog.close(); document.body.style.overflow = overflow; };
+  }, [open]);
 
-  }, [id]);
-
-  if (!project) {
-    return (
-      <div className="min-h-screen bg-[#030014] flex items-center justify-center">
-        <div className="text-center space-y-6 animate-fadeIn">
-          <div className="w-16 h-16  mx-auto border-8 border-blue-500/30 border-t-purple-700 rounded-full animate-spin" />
-        </div>
-      </div>
-    );
-  }
-
-  // click
-  const handlePictureClick = (picture) => {
-    // Handle picture click event
-    setPicture(picture)
-
-  };
+  const select = (next) => { setIndex(next); setZoomed(false); };
+  const move = (direction) => select((index + direction + images.length) % images.length);
+  if (!images.length) return null;
 
   return (
-    <div className="min-h-screen  px-[2%] sm:px-0 relative overflow-hidden">
-      {/* Background animations remain unchanged */}
-      <div className="fixed inset-0">
-        <div className="absolute -inset-[10px] opacity-20">
-          <div className="absolute top-0 -left-4 w-72 md:w-96 h-72 md:h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob" />
-          <div className="absolute top-0 -right-4 w-72 md:w-96 h-72 md:h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000" />
-          <div className="absolute -bottom-8 left-20 w-72 md:w-96 h-72 md:h-96 bg-purple-800  rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000" />
+    <>
+      <figure className="overflow-hidden rounded-2xl border border-white/10 bg-card">
+        <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3">
+          <span className="flex items-center gap-2 text-xs text-muted-foreground"><span className="size-2 rounded-full bg-primary" aria-hidden="true" /> Aperçu du projet</span>
+          <span className="text-xs tabular-nums text-muted-foreground">{index + 1} / {images.length}</span>
         </div>
-      </div>
+        <button type="button" onClick={() => { setZoomed(false); setOpen(true); }} aria-label={`Agrandir l’aperçu de ${project.title}`} aria-haspopup="dialog" className="group relative block aspect-[16/10] w-full cursor-zoom-in overflow-hidden bg-surface-raised focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-primary">
+          <ProjectImage key={images[index]} src={images[index]} alt={`${project.title}, aperçu ${index + 1}`} eager className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transform-none" />
+          <span aria-hidden="true" className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/15 bg-page-background/85 px-3 py-2 text-xs text-white shadow-lg"><ZoomIn className="size-4" /> Agrandir</span>
+        </button>
+        {images.length > 1 && <div className="flex gap-3 overflow-x-auto border-t border-white/10 p-4" aria-label="Choisir une capture">
+          {images.map((image, imageIndex) => <button key={image} type="button" onClick={() => select(imageIndex)} aria-label={`Afficher la capture ${imageIndex + 1}`} aria-pressed={index === imageIndex} className={`relative h-16 w-24 shrink-0 overflow-hidden rounded-lg border-2 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${index === imageIndex ? 'border-primary' : 'border-transparent hover:border-white/30'}`}>
+            <ProjectImage key={image} src={image} alt="" className="h-full w-full object-cover" />
+          </button>)}
+        </div>}
+      </figure>
 
-      <div className="relative">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
-          <div className="flex items-center space-x-2 md:space-x-4 mb-8 md:mb-12 animate-fadeIn">
-            <button
-              onClick={() => navigate(-1)}
-              className="group inline-flex items-center space-x-1.5 md:space-x-2 px-3 md:px-5 py-1 bg-white/5 backdrop-blur-xl rounded-xl text-white/90 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20 text-sm md:text-base"
-            >
-              <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" />
-              <span>Back</span>
-            </button>
-            <div className="flex items-center space-x-1 md:space-x-2 text-sm md:text-base text-white/50">
-              <span>Projets</span>
-              <ChevronRight className="w-3 h-3 md:w-4 md:h-4" />
-              <span className="text-white/90 truncate">{project.title}</span>
+      {createPortal(<dialog ref={dialogRef} aria-labelledby="project-image-title" onCancel={(event) => { event.preventDefault(); setOpen(false); }} onClick={(event) => { if (event.target === event.currentTarget) setOpen(false); }} onKeyDown={(event) => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+      }} className="fixed inset-0 m-auto max-h-[94dvh] w-[calc(100%_-_1.5rem)] max-w-6xl overflow-hidden rounded-2xl border border-white/15 bg-card p-0 text-foreground shadow-2xl backdrop:bg-black/85 backdrop:backdrop-blur-sm open:animate-in open:fade-in-0 open:zoom-in-95 motion-reduce:animate-none">
+        {open && <div className="flex max-h-[94dvh] flex-col">
+          <div className="flex shrink-0 items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-6">
+            <h2 id="project-image-title" className="truncate text-sm font-medium">{project.title}</h2>
+            <div className="flex gap-1">
+              <Button variant="ghost" size="icon" onClick={() => setZoomed((value) => !value)} aria-label={zoomed ? 'Réduire la capture' : 'Agrandir la capture'} aria-pressed={zoomed}>{zoomed ? <ZoomOut /> : <ZoomIn />}</Button>
+              <Button ref={closeRef} variant="ghost" size="icon" onClick={() => setOpen(false)} aria-label="Fermer l’aperçu"><X /></Button>
             </div>
           </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-16">
-            <div className="space-y-6 md:space-y-10 animate-slideInLeft">
-              <div className="space-y-2 md:space-y-4">
-                <h1 className="text-3xl md:text-6xl font-bold bg-gradient-to-r from-blue-300 via-purple-200 to-purple-500 bg-clip-text text-transparent ">
-                  {project.title}
-                </h1>
-                <div className="relative h-1 w-21 md:w-45">
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-sm" />
-                </div>
-              </div>
-
-              <div className="prose prose-invert max-w-none">
-                <p className="text-base md:text-lg text-gray-300/90 leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
-
-              <ProjectStats project={project} />
-
-
-              <div className="space-y-4 md:space-y-6">
-                <h3 className="text-lg md:text-xl font-semibold text-white/90 mt-[3rem] md:mt-0 flex items-center gap-2 md:gap-3">
-                  <Code2 className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
-                  Technologies Utilisées
-                </h3>
-                {project?.stack?.length > 0 ? (
-                  <div className="flex flex-wrap gap-2 md:gap-3">
-                    {project.stack.map((tech, index) => (
-                      <TechBadge key={index} tech={tech} />
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm md:text-base text-gray-400 opacity-50">No technologies added.</p>
-                )}
-              </div>
-            </div>
-
-            <div className="space-y-6 md:space-y-10 animate-slideInRight">
-              <div className="relative p-3 rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                <img
-                  src={project.photo}
-                  alt={project.title}
-                  loading="lazy"
-                  className="w-full md:h-96 object-cover rounded-md"
-                />
-                <div className="flex mt-5 space-x-2">
-                  {project.pictures?.map((pic, i) => (
-                    <div key={i}
-                      onClick={() => handlePictureClick(pic)}
-                      className=""
-                    >
-                      <img
-                        src={'https://res.cloudinary.com/datjizbe8/image/upload/v1756573615/dash_rilu2k.jpg'}
-                        alt={project.title}
-                        loading="lazy"
-                        className={`object-cover rounded-md cursor-pointer hover:scale-105 transition-transform h-12  md:h-16  ${picture === pic ? 'ring-3 ring-purple-800' : ''}`}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/*Caractéristiques principales */}
-              <div className="bg-white/[0.02] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover:border-white/20 transition-colors duration-300 group">
-                <h3 className="text-xl font-semibold text-white/90 flex items-center gap-3">
-                  <Star className="w-5 h-5 text-yellow-400 group-hover:rotate-[20deg] transition-transform duration-300" />
-                  Caractéristiques principales
-                </h3>
-                {project?.Features?.length > 0 ? (
-                  <ul className="list-none space-y-2">
-                    {project.Features.map((feature, index) => (
-                      <FeatureItem key={index} feature={feature} />
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-gray-400 opacity-50">No features added.</p>
-                )}
-              </div>
-            </div>
+          <div className="relative min-h-0 flex-1 overflow-auto bg-surface-raised p-2 sm:p-4">
+            <ProjectImage key={images[index]} src={images[index]} alt={`${project.title}, capture ${index + 1}`} eager className={zoomed ? 'block w-[150%] min-w-[150%] max-w-none' : 'mx-auto block max-h-[72dvh] w-auto max-w-full object-contain'} />
           </div>
-        </div>
-      </div>
-
-      <style jsx>{`
-        @keyframes blob {
-          0% {
-            transform: translate(0px, 0px) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-          100% {
-            transform: translate(0px, 0px) scale(1);
-          }
-        }
-        .animate-blob {
-          animation: blob 10s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.7s ease-out;
-        }
-        .animate-slideInLeft {
-          animation: slideInLeft 0.7s ease-out;
-        }
-        .animate-slideInRight {
-          animation: slideInRight 0.7s ease-out;
-        }
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      `}</style>
-    </div>
+          <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-white/10 px-4 py-3">
+            <Button asChild variant="ghost" size="sm"><a href={images[index]} target="_blank" rel="noopener noreferrer">Ouvrir l’image<ExternalLink className="size-3.5" /></a></Button>
+            {images.length > 1 && <div className="flex items-center gap-3">
+              <span className="text-xs tabular-nums text-muted-foreground" aria-live="polite">{index + 1} / {images.length}</span>
+              <Button variant="outline" size="icon" onClick={() => move(-1)} aria-label="Capture précédente"><ChevronLeft /></Button>
+              <Button variant="outline" size="icon" onClick={() => move(1)} aria-label="Capture suivante"><ChevronRight /></Button>
+            </div>}
+          </div>
+        </div>}
+      </dialog>, document.body)}
+    </>
   );
-};
+}
 
-export default ProjectDetails;
+export default function ProjectDetails() {
+  const { id } = useParams();
+  const position = PROJECTS.findIndex((project) => String(project.id) === id);
+  const project = PROJECTS[position];
+
+  useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, [id]);
+
+  if (!project) return (
+    <main className="flex min-h-screen items-center justify-center bg-page-background px-6 text-center text-foreground">
+      <div className="max-w-md">
+        <FolderOpen className="mx-auto mb-6 size-12 text-primary-light" aria-hidden="true" />
+        <p className="mb-3 text-xs uppercase tracking-[0.2em] text-primary-light">Projet introuvable</p>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Ce projet n’est pas disponible.</h1>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">Retrouvez les autres réalisations dans mon portfolio.</p>
+        <Button asChild className="mt-7 rounded-full px-6"><Link to="/#Projects"><ArrowLeft className="size-4" />Voir les projets</Link></Button>
+      </div>
+    </main>
+  );
+
+  const stack = [...new Set(project.stack || [])];
+  const features = project.Features || [];
+  const previous = PROJECTS[position - 1];
+  const next = PROJECTS[position + 1];
+
+  return (
+    <main className="relative min-h-screen bg-page-background px-[5%] pb-12 text-foreground sm:pb-20 lg:px-[8%]">
+      <div className="mx-auto max-w-7xl">
+        <header className="flex items-center justify-between gap-5 border-b border-white/10 py-5 sm:py-7">
+          <Link to="/" className="text-sm font-semibold tracking-wide">SAID BZIOUI<span className="text-primary">.</span></Link>
+          <Button asChild variant="ghost" size="sm" className="rounded-full text-muted-foreground"><Link to="/#Projects"><ArrowLeft className="size-4" />Tous les projets</Link></Button>
+        </header>
+        <nav aria-label="Fil d’Ariane" className="mt-7 flex min-w-0 items-center gap-2 text-xs text-muted-foreground sm:mt-10">
+          <Link to="/#Projects" className="shrink-0 transition-colors hover:text-primary-light">Projets</Link><ChevronRight className="size-3.5 shrink-0" aria-hidden="true" /><span aria-current="page" className="truncate text-foreground/80">{project.title}</span>
+        </nav>
+        <div className="py-8 sm:py-12">
+          <Badge className="mb-5 gap-2"><Layers className="size-3" aria-hidden="true" />Projet {String(position + 1).padStart(2, '0')}</Badge>
+          <h1 className="max-w-4xl text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">{project.title}</h1>
+        </div>
+
+        <div className="grid items-start gap-7 lg:grid-cols-[minmax(0,1.7fr)_minmax(18rem,1fr)] lg:gap-10">
+          <div className="min-w-0 space-y-7 sm:space-y-9">
+            <ProjectGallery key={project.id} project={project} />
+            <section aria-labelledby="project-overview-title" className="rounded-2xl border border-white/10 bg-card p-5 sm:p-7">
+              <h2 id="project-overview-title" className="mb-4 text-xl font-semibold">À propos du projet</h2>
+              <p className="text-sm leading-7 text-muted-foreground sm:text-base sm:leading-8">{project.description}</p>
+            </section>
+            {features.length > 0 && <section aria-labelledby="project-features-title" className="rounded-2xl border border-white/10 bg-card p-5 sm:p-7">
+              <h2 id="project-features-title" className="mb-5 text-xl font-semibold">Fonctionnalités</h2>
+              <ul className="grid gap-4 sm:grid-cols-2">{features.map((feature) => <li key={feature} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"><span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary-light"><Check className="size-3" aria-hidden="true" /></span>{feature}</li>)}</ul>
+            </section>}
+          </div>
+
+          <aside aria-label="Informations et liens du projet" className="space-y-5 lg:sticky lg:top-8">
+            <Card className="gap-0 overflow-hidden border-white/10 py-0">
+              <CardContent className="space-y-6 p-5 sm:p-6">
+                <div className="flex items-center gap-3"><span className="flex size-10 items-center justify-center rounded-xl bg-primary/10 text-primary-light"><Code2 className="size-5" aria-hidden="true" /></span><div><h2 className="font-semibold">Technologies</h2><p className="mt-0.5 text-xs text-muted-foreground">Le stack utilisé pour ce projet</p></div></div>
+                {stack.length ? <ul className="flex flex-wrap gap-2" aria-label="Technologies utilisées">{stack.map((tech) => <li key={tech}><Badge className="rounded-lg border-white/10 bg-surface-raised px-3 py-1.5 text-xs font-normal text-foreground/90">{tech}</Badge></li>)}</ul> : <p className="text-sm text-muted-foreground">Le stack n’est pas renseigné pour ce projet.</p>}
+                <div className="space-y-3 border-t border-white/10 pt-5">
+                  {project.link ? <Button asChild className="min-h-11 w-full rounded-xl"><a href={project.link} target="_blank" rel="noopener noreferrer">Voir le site<ArrowUpRight className="size-4" /></a></Button> : <p className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-center text-xs text-muted-foreground">Aucune démonstration publique disponible.</p>}
+                  {project.github && <Button asChild variant="outline" className="min-h-11 w-full rounded-xl border-white/15"><a href={project.github} target="_blank" rel="noopener noreferrer"><Github className="size-4" aria-hidden="true" />Code source<ArrowUpRight className="size-4" /></a></Button>}
+                </div>
+              </CardContent>
+            </Card>
+            <p className="px-2 text-xs leading-relaxed text-muted-foreground">Les liens vers le site et le code source s’ouvrent dans un nouvel onglet.</p>
+          </aside>
+        </div>
+
+        <nav aria-label="Parcourir les projets" className="mt-12 grid gap-4 border-t border-white/10 pt-7 sm:mt-16 sm:grid-cols-2">
+          {previous ? <Link to={`/project/${previous.id}`} className="group flex items-center gap-4 rounded-xl border border-white/10 p-5 transition-colors hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-primary"><ArrowLeft className="size-5 shrink-0 text-primary-light transition-transform group-hover:-translate-x-1" /><div className="min-w-0"><p className="mb-1 text-xs text-muted-foreground">Projet précédent</p><p className="truncate text-sm font-medium">{previous.title}</p></div></Link> : <Link to="/#Projects" className="flex items-center gap-3 rounded-xl border border-white/10 p-5 text-sm text-muted-foreground hover:text-primary-light"><ArrowLeft className="size-4" />Tous les projets</Link>}
+          {next && <Link to={`/project/${next.id}`} className="group flex items-center justify-between gap-4 rounded-xl border border-white/10 p-5 transition-colors hover:border-primary/40 hover:bg-primary/5 focus-visible:outline-2 focus-visible:outline-primary"><div className="min-w-0"><p className="mb-1 text-xs text-muted-foreground">Projet suivant</p><p className="truncate text-sm font-medium">{next.title}</p></div><ArrowRight className="size-5 shrink-0 text-primary-light transition-transform group-hover:translate-x-1" /></Link>}
+        </nav>
+      </div>
+    </main>
+  );
+}

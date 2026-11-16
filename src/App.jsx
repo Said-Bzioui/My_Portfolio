@@ -1,5 +1,6 @@
 
-import { Route, Routes } from 'react-router-dom'
+import { useLayoutEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import AnimatedBackground from './components/Background'
 import Footer from './components/footer'
 import Navbar from './components/Navbar'
@@ -18,6 +19,13 @@ import Contact from './components/Contact'
 
 
 function Portfolio() {
+  const { hash } = useLocation();
+  useLayoutEffect(() => {
+    if (hash === '#Projects') {
+      const section = document.getElementById('Projects');
+      if (section) window.scrollTo({ top: Math.max(0, section.getBoundingClientRect().top + window.scrollY - 104), behavior: 'instant' });
+    }
+  }, [hash]);
   return (
     <>
       {/* <OpenTo /> */}
@@ -25,11 +33,11 @@ function Portfolio() {
       <Navbar />
       <Home />
       <About />
-      <Projects />
-      <Certificate />
       <Stack />
-      <EducationsPage />
+      <Projects />
       <ExperiencesPage />
+      <EducationsPage />
+      <Certificate />
       <Activities />
       <Footer />
 

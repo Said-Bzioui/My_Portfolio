@@ -1,6 +1,7 @@
+import { Github, Linkedin } from "./brand-icons";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Ban, CheckCircle, Github, Linkedin, Mail, MapPinCheckInside, MessageSquare, Phone, Send, User, X } from "lucide-react";
+import { Ban, CheckCircle, Mail, MapPinCheckInside, MessageSquare, Phone, Send, User, X } from "lucide-react";
 import { useEffect, useState } from "react"; import axios from "axios";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -61,7 +62,7 @@ const Contact = () => {
         <div className="relative " >
             <div className="fixed inset-0">
                 <div className="absolute -inset-[10px] opacity-40">
-                    <div className="absolute top-0 -right-4 w-72 md:w-96 h-72 md:h-96 bg-indigo-500 rounded-full   blur-3xl opacity-70 " />
+                    <div className="absolute top-0 -right-4 w-72 md:w-96 h-72 md:h-96 bg-primary rounded-full   blur-3xl opacity-70 " />
                     <div className="absolute  -bottom-10 -left-10  w-72 md:w-96 h-72 md:h-96 bg-red-800  rounded-full  blur-3xl opacity-50 " />
                 </div>
 
@@ -70,13 +71,13 @@ const Contact = () => {
                 <h2
                     data-aos="fade-up"
                     data-aos-delay="100"
-                    className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]"
+                    className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
                 >
                     <span
                         style={{
-                            color: "#6366f1",
+                            color: "var(--primary)",
                             backgroundImage:
-                                "linear-gradient(45deg, #6366f1 10%, #a855f7 93%)",
+                                "linear-gradient(45deg, var(--primary) 10%, var(--secondary) 93%)",
                             WebkitBackgroundClip: "text",
                             backgroundClip: "text",
                             WebkitTextFillColor: "transparent",
@@ -88,7 +89,7 @@ const Contact = () => {
                 <p
                     data-aos="fade-up"
                     data-aos-delay="200"
-                    className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base mt-2"
+                    className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base mt-2"
                 >
                     Vous avez une question ? Envoyez-moi un message, je vous répondrai rapidement.
                 </p>
@@ -98,7 +99,7 @@ const Contact = () => {
                 id="Contact"
             >
 
-                <div className="bg-[#a855f7]/20 flex flex-col md:flex-row gap-6 container md:max-w-4xl lg:max-w-6xl backdrop-blur-xl rounded-lg shadow-2xl p-3 md:p-7 transform transition-all duration-300 hover:shadow-[#6366f1]/10" >
+                <div className="bg-secondary/20 flex flex-col md:flex-row gap-6 container md:max-w-4xl lg:max-w-6xl backdrop-blur-xl rounded-lg shadow-2xl p-3 md:p-7 transform transition-all duration-300 hover:shadow-primary/10" >
                     <div
                         data-aos="fade-right"
                         data-aos-delay="400"
@@ -106,35 +107,35 @@ const Contact = () => {
                         <h1
                             data-aos="fade-up"
                             data-aos-delay="500"
-                            className="text-slate-300 text-lg md:text-3xl text-center md:text-start ">
+                            className="text-muted-foreground text-lg md:text-3xl text-center md:text-start ">
                             Discutons ensemble de quelque chose de
-                            <span className="text-[#a855f7] mx-1 uppercase font-bold text-3xl underline ">merveilleux</span>
+                            <span className="text-secondary mx-1 uppercase font-bold text-3xl underline ">merveilleux</span>
                         </h1>
 
-                        <div className="text-slate-400 space-y-4 text-sm ">
+                        <div className="text-muted-foreground space-y-4 text-sm ">
                             <span
                                 data-aos="fade-up"
                                 data-aos-delay="600"
-                                className="flex items-center gap-2 py-2 w-fit px-4 bg-[#a855f7]/10 rounded-full  "><Mail className="text-[#a855f7]" />saidbzioui.contact@gmail.com</span>
+                                className="flex items-center gap-2 py-2 w-fit px-4 bg-secondary/10 rounded-full  "><Mail className="text-secondary" />saidbzioui.contact@gmail.com</span>
                             <span
                                 data-aos="fade-up"
                                 data-aos-delay="650"
-                                className="flex items-center  gap-2 py-2 w-fit px-4 bg-[#a855f7]/10 rounded-full  "><Phone className="text-[#a855f7]" />+212767366906</span>
+                                className="flex items-center  gap-2 py-2 w-fit px-4 bg-secondary/10 rounded-full  "><Phone className="text-secondary" />+212767366906</span>
                             <span
                                 data-aos="fade-up"
                                 data-aos-delay="700"
-                                className="flex items-center  gap-2 py-2 w-fit px-4 bg-[#a855f7]/10 rounded-full  "><MapPinCheckInside className="text-[#a855f7]" /> La région de Rabat-Salé-Kénitra</span>
+                                className="flex items-center  gap-2 py-2 w-fit px-4 bg-secondary/10 rounded-full  "><MapPinCheckInside className="text-secondary" /> La région de Rabat-Salé-Kénitra</span>
                         </div>
                         <div
-                            className="text-slate-400  text-sm flex space-x-6 mx-auto ">
+                            className="text-muted-foreground  text-sm flex space-x-6 mx-auto ">
                             <a href="https://github.com/Said-Bzioui" target="_blank" rel="noopener noreferrer" >
-                                <span className="flex items-center  p-2  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Github size={21} className="text-[#a855f7]" /></span>
+                                <span className="flex items-center  p-2  bg-secondary/10 rounded-full border border-secondary/50 "><Github size={21} className="text-secondary" /></span>
                             </a>
                             <a href="https://www.linkedin.com/in/said-bzioui/" target="_blank" rel="noopener noreferrer">
-                                <span className="flex items-center  p-2  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Linkedin size={21} className="text-[#a855f7]" /></span>
+                                <span className="flex items-center  p-2  bg-secondary/10 rounded-full border border-secondary/50 "><Linkedin size={21} className="text-secondary" /></span>
                             </a>
                             <a href="mailto:saidbzioui.contact@gmail.com">
-                                <span className="flex items-center  p-2  bg-[#a855f7]/10 rounded-full border border-[#a855f7]/50 "><Mail size={21} className="text-[#a855f7]" /></span>
+                                <span className="flex items-center  p-2  bg-secondary/10 rounded-full border border-secondary/50 "><Mail size={21} className="text-secondary" /></span>
                             </a>
                         </div>
                     </div>
@@ -142,7 +143,7 @@ const Contact = () => {
                         data-aos="fade-left"
                         data-aos-delay="400"
                         onSubmit={handleSubmit(onSubmit)}
-                        className="space-y-6 grow p-5 rounded-xl bg-gradient-to-br from-slate-900/40 to-slate-800/60 backdrop-blur-lg"
+                        className="space-y-6 grow p-5 rounded-xl bg-gradient-to-br from-card/40 to-surface-raised/60 backdrop-blur-lg"
                     >
                         <input type="text" name="_honey" style={{ display: "none" }} />
                         <input type="hidden" name="_captcha" value="false" />
@@ -152,7 +153,7 @@ const Contact = () => {
                             data-aos="fade-up"
                             data-aos-delay="500"
                             className="relative group">
-                            <User className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <User className="absolute left-4 top-2 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
                             <input
                                 type="text"
                                 id="name"
@@ -160,7 +161,7 @@ const Contact = () => {
                                 name="name"
                                 {...register("name")}
                                 placeholder="Votre Nom"
-                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border ${errors.name ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"} placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50`}
+                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border ${errors.name ? "border-red-500" : "border-white/20 hover:border-primary/30"} placeholder-muted-foreground text-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-300  disabled:opacity-50`}
 
                             />
 
@@ -171,7 +172,7 @@ const Contact = () => {
                             data-aos-delay="600"
                             className="relative group"
                         >
-                            <Mail className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <Mail className="absolute left-4 top-2 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
 
                             <input
                                 type="email"
@@ -180,7 +181,7 @@ const Contact = () => {
                                 id="email"
                                 {...register("email")}
                                 placeholder="Votre Email"
-                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border  placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  disabled:opacity-50 ${errors.email ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}`}
+                                className={`w-full p-2 pl-12 bg-white/10 rounded-xl border  placeholder-muted-foreground text-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-300  disabled:opacity-50 ${errors.email ? "border-red-500" : "border-white/20 hover:border-primary/30"}`}
 
                             />
                             {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
@@ -190,7 +191,7 @@ const Contact = () => {
                             data-aos-delay="700"
                             className="relative group"
                         >
-                            <MessageSquare className="absolute left-4 top-2 w-5 h-5 text-gray-400 group-focus-within:text-[#6366f1] transition-colors" />
+                            <MessageSquare className="absolute left-4 top-2 w-5 h-5 text-muted-foreground group-focus-within:text-primary transition-colors" />
 
                             <textarea
                                 name="message"
@@ -198,7 +199,7 @@ const Contact = () => {
                                   aria-label="Message"
                                 {...register("message")}
                                 placeholder="Votre Message"
-                                className={`w-full resize-none p-2 pl-12 bg-white/10 rounded-xl border ${errors.message ? "border-red-500" : "border-white/20 hover:border-[#6366f1]/30"}   placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300  h-[9rem] disabled:opacity-50`}
+                                className={`w-full resize-none p-2 pl-12 bg-white/10 rounded-xl border ${errors.message ? "border-red-500" : "border-white/20 hover:border-primary/30"}   placeholder-muted-foreground text-white focus:outline-none focus:ring-2 focus:ring-primary/30 transition-all duration-300  h-[9rem] disabled:opacity-50`}
 
                             />
                             {errors.message && <p className="text-red-500 text-sm">{errors.message.message}</p>}
@@ -206,7 +207,7 @@ const Contact = () => {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full flex items-center  justify-center gap-3  bg-[#a855f7]/10 cursor-pointer sm:px-6 py-2 sm:py-3 rounded-lg border border-[#a855f7]/50 text-[#a855f7] font-medium transition-all duration-300 hover:scale-101 "
+                            className="w-full flex items-center  justify-center gap-3  bg-secondary/10 cursor-pointer sm:px-6 py-2 sm:py-3 rounded-lg border border-secondary/50 text-secondary font-medium transition-all duration-300 hover:scale-101 "
                         >
                             {isSubmitting ? "Sending..." : "Send"}
                         </button>

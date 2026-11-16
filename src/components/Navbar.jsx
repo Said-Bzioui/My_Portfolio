@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [activeSection, setActiveSection] = useState("Home");
-
-    const navItems = [
+const navItems = [
         { href: "#Home", label: "Home" },
         { href: "#About", label: "About" },
         { href: "#Projects", label: "Projects" },
         { href: "#Certificates", label: "Certificates" },
         { href: "#Activity", label: "Activities" },
     ];
+
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("Home");
+
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -69,10 +71,10 @@ const Navbar = () => {
             className={`fixed w-full  top-0 z-50 transition-all duration-500 bg-transparent`}
         >
             <div className="mx-auto    px-4 sm:px-6 lg:px-[10%] ">
-                <div className={`flex items-center justify-between h-14 mt-4 border border-[#a855f7]/20 rounded-full px-5 
+                <div className={`flex items-center justify-between h-14 mt-4 border bg-muted/20! border-secondary/10 rounded-full px-5
                       ${isOpen
-                        ? "bg-[#3d3c41] opacity-100"
-                        : "bg-[#a855f7]/6 backdrop-blur-xl"
+                        ? "bg-nav-surface opacity-100"
+                        : "bg-secondary/6 backdrop-blur-xl"
                     }
                     `}>
                     {/* Logo */}
@@ -80,7 +82,7 @@ const Navbar = () => {
                         <a
                             href="#Home"
                             onClick={(e) => scrollToSection(e, "#Home")}
-                            className=" bg-gradient-to-r from-[#a855f7] to-[#6366f1]  flex items-center justify-center rounded-full p-0.5"
+                            className=" bg-gradient-to-r from-secondary to-primary  flex items-center justify-center rounded-full p-0.5"
                         >
                             <img
                                 src="https://res.cloudinary.com/datjizbe8/image/upload/v1756574635/logo_tnlhz1.jpg"
@@ -103,14 +105,14 @@ const Navbar = () => {
                                 >
                                     <span
                                         className={`relative z-10 transition-colors duration-300 ${activeSection === item.href.substring(1)
-                                            ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
-                                            : "text-[#e2d3fd] group-hover:text-white"
+                                            ? "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold"
+                                            : "text-nav-foreground group-hover:text-white"
                                             }`}
                                     >
                                         {item.label}
                                     </span>
                                     <span
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] transform origin-left transition-transform duration-300 ${activeSection === item.href.substring(1)
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-secondary transform origin-left transition-transform duration-300 ${activeSection === item.href.substring(1)
                                             ? "scale-x-100"
                                             : "scale-x-0 group-hover:scale-x-100"
                                             }`}
@@ -122,7 +124,7 @@ const Navbar = () => {
                     </div>
                     <a
                         href="/contact"
-                        className={`font-semibold hidden md:block bg-[#a855f7]/50 text-slate-300 hover:ring-2 ring-[#a855f7] py-2 rounded-full px-4 cursor-pointer duration-300 `}
+                        className={`font-semibold hidden md:block bg-secondary/50 text-muted-foreground hover:ring-2 ring-secondary py-2 rounded-full px-4 cursor-pointer duration-300 `}
                     >
                         Contact
                     </a>
@@ -130,7 +132,7 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`relative p-2 text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
+                            className={`relative p-2 text-nav-foreground hover:text-white transition-transform duration-300 ease-in-out transform ${isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
                                 }`}
                         >
                             {isOpen ? (
@@ -145,7 +147,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`md:hidden h-3/4 fixed mt-4 w-full bg-[#07012bdc] transition-all duration-300 ease-in-out
+                className={`md:hidden h-3/4 fixed mt-4 w-full bg-nav-overlay transition-all duration-300 ease-in-out
                      ${isOpen ?
                         "opacity-100 translate-x-0"
                         :
@@ -160,9 +162,9 @@ const Navbar = () => {
                                 key={item.label}
                                 href={item.href}
                                 onClick={(e) => scrollToSection(e, item.href)}
-                                className={`block px-4 py-3 text-lg font-medium border  border-[#a855f7]/50 text-[#a855f7]  backdrop-blur-xl rounded-md transition-all duration-300 ease ${activeSection === item.href.substring(1)
-                                    ? "bg-[#a855f7]/10"
-                                    : "text-[#e2d3fd] hover:text-white"
+                                className={`block px-4 py-3 text-lg font-medium border  border-secondary/50 text-secondary  backdrop-blur-xl rounded-md transition-all duration-300 ease ${activeSection === item.href.substring(1)
+                                    ? "bg-secondary/10"
+                                    : "text-nav-foreground hover:text-white"
                                     }`}
                                 style={{
                                     transitionDelay: `${index * 100}ms`,
@@ -177,7 +179,7 @@ const Navbar = () => {
                     </div>
                     <a
                         href="/contact"
-                        className={`font-semibold  bg-[#a855f7]/50 text-slate-300 hover:ring-2 ring-[#a855f7] py-4 flex items-center justify-center  rounded-full  cursor-pointer duration-300 `}
+                        className={`font-semibold  bg-secondary/50 text-muted-foreground hover:ring-2 ring-secondary py-4 flex items-center justify-center  rounded-full  cursor-pointer duration-300 `}
                     >
                         Contact
                     </a>
