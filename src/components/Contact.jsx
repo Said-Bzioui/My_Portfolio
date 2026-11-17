@@ -70,6 +70,7 @@ const Contact = () => {
                 </div>
 
             </div>
+            <main id="main-content">
             <div className="text-center lg:mt-[2%] mt-6 mb-2 sm:px-0 px-[5%] ">
                 <h2
                     data-aos="fade-up"
@@ -131,13 +132,13 @@ const Contact = () => {
                         </div>
                         <div
                             className="text-muted-foreground  text-sm flex space-x-6 mx-auto ">
-                            <a href="https://github.com/Said-Bzioui" target="_blank" rel="noopener noreferrer" >
+                            <a href="https://github.com/Said-Bzioui" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Said Bzioui">
                                 <span className="flex items-center  p-2  bg-secondary/10 rounded-full border border-secondary/50 "><Github size={21} className="text-secondary" /></span>
                             </a>
-                            <a href="https://www.linkedin.com/in/said-bzioui/" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.linkedin.com/in/said-bzioui/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Said Bzioui">
                                 <span className="flex items-center  p-2  bg-secondary/10 rounded-full border border-secondary/50 "><Linkedin size={21} className="text-secondary" /></span>
                             </a>
-                            <a href="mailto:saidbzioui.contact@gmail.com">
+                            <a href="mailto:saidbzioui.contact@gmail.com" aria-label="Envoyer un e-mail à Said Bzioui">
                                 <span className="flex items-center  p-2  bg-secondary/10 rounded-full border border-secondary/50 "><Mail size={21} className="text-secondary" /></span>
                             </a>
                         </div>
@@ -295,6 +296,7 @@ const Contact = () => {
                     </div>
                 </>
             )}
+            </main>
             <Footer />
         </div >
         </>

@@ -124,7 +124,7 @@ body {
 	--popover: var(--card);
 	--popover-foreground: var(--foreground);
 	--control-primary: var(--primary);
-	--primary-foreground: #ffffff;
+	--primary-foreground: #1b100b;
 	--control-secondary: var(--surface-raised);
 	--secondary-foreground: var(--foreground);
 	--muted: var(--surface-raised);

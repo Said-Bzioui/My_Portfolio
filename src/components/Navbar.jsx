@@ -68,6 +68,7 @@ const Navbar = () => {
 
     return (
         <nav
+            aria-label="Navigation principale"
             className={`fixed w-full  top-0 z-50 transition-all duration-500 bg-transparent`}
         >
             <div className="mx-auto    px-4 sm:px-6 lg:px-[10%] ">
@@ -131,6 +132,10 @@ const Navbar = () => {
                     {/* Mobile Menu Button */}
                     <div className="md:hidden">
                         <button
+                            type="button"
+                            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                            aria-expanded={isOpen}
+                            aria-controls="mobile-navigation"
                             onClick={() => setIsOpen(!isOpen)}
                             className={`relative p-2 text-nav-foreground hover:text-white transition-transform duration-300 ease-in-out transform ${isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
                                 }`}
@@ -147,6 +152,10 @@ const Navbar = () => {
 
             {/* Mobile Menu Overlay */}
             <div
+                id="mobile-navigation"
+                aria-label="Navigation mobile"
+                aria-hidden={!isOpen}
+                inert={!isOpen}
                 className={`md:hidden h-3/4 fixed mt-4 w-full bg-nav-overlay transition-all duration-300 ease-in-out
                      ${isOpen ?
                         "opacity-100 translate-x-0"

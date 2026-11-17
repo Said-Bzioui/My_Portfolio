@@ -33,14 +33,16 @@ function Portfolio() {
       {/* <OpenTo /> */}
       <AnimatedBackground />
       <Navbar />
-      <Home />
-      <About />
-      <Stack />
-      <Projects />
-      <ExperiencesPage />
-      <EducationsPage />
-      <Certificate />
-      <Activities />
+      <main id="main-content">
+        <Home />
+        <About />
+        <Stack />
+        <Projects />
+        <ExperiencesPage />
+        <EducationsPage />
+        <Certificate />
+        <Activities />
+      </main>
       <Footer />
 
     </>

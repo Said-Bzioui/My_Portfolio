@@ -157,7 +157,7 @@ const ActivityDetails = () => {
   return (
     <>
     <SeoHead title={`${activity.title} | Activité de SAID BZIOUI`} description={activity.description} path={`/activity/${id}`} image={activity.photo} type="article" />
-    <div className="min-h-screen  px-[2%] sm:px-0 relative overflow-hidden">
+    <main className="min-h-screen  px-[2%] sm:px-0 relative overflow-hidden">
       {/* Background animations remain unchanged */}
       <div className="fixed inset-0">
         <div className="absolute -inset-[10px] opacity-20">
@@ -284,7 +284,7 @@ const ActivityDetails = () => {
           }
         }
       `}</style>
-    </div>
+    </main>
     </>
   );
 };
