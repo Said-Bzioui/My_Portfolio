@@ -1,0 +1,59 @@
+import { Helmet } from 'react-helmet-async'
+
+const SITE_URL = 'https://saidbzioui.vercel.app'
+const DEFAULT_IMAGE = 'https://res.cloudinary.com/datjizbe8/image/upload/v1756574743/photo_cmw5f4.jpg'
+
+export default function SeoHead({
+  title = 'SAID BZIOUI | Développeur Full Stack au Maroc',
+  description = 'Portfolio de Said Bzioui, développeur Full Stack au Maroc. Découvrez ses projets web, compétences en React et Laravel, expériences et formations.',
+  path = '/',
+  image = DEFAULT_IMAGE,
+  type = 'website',
+  noindex = false,
+}) {
+  const canonicalUrl = new URL(path, SITE_URL).toString()
+  const metaDescription = description.length > 160
+    ? `${description.slice(0, 157).trimEnd()}…`
+    : description
+  const structuredData = type === 'article'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        name: title,
+        description,
+        url: canonicalUrl,
+        image,
+        author: {
+          '@type': 'Person',
+          name: 'SAID BZIOUI',
+          url: SITE_URL,
+        },
+      }
+    : null
+
+  return (
+    <Helmet>
+      <html lang="fr" />
+      <title>{title}</title>
+      <meta name="description" content={metaDescription} />
+      <meta name="author" content="SAID BZIOUI" />
+      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+      <link rel="canonical" href={canonicalUrl} />
+      <meta property="og:locale" content="fr_MA" />
+      <meta property="og:site_name" content="SAID BZIOUI | Portfolio" />
+      <meta property="og:type" content={type} />
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:alt" content={title} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={metaDescription} />
+      <meta name="twitter:image" content={image} />
+      {structuredData && (
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      )}
+    </Helmet>
+  )
+}

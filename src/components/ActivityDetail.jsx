@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { PARASCOLAIRRE } from "../../lib/data";
 import JournalSpreadCarousel from "@/components/ui/journal-spread-carousel.jsx";
+import SeoHead from "@/components/SeoHead";
 
 function generateActivitySpreads(activity) {
   if (!activity) return [];
@@ -142,15 +143,20 @@ const ActivityDetails = () => {
 
   if (!activity) {
     return (
+      <>
+      <SeoHead title="Activité introuvable | SAID BZIOUI" description="Cette activité n’est pas disponible dans le portfolio de Said Bzioui." path={`/activity/${id}`} noindex />
       <div className="min-h-screen bg-page-background flex items-center justify-center">
         <div className="text-center space-y-6 animate-fadeIn">
           <div className="w-16 h-16  mx-auto border-8 border-primary/30 border-t-secondary-deep rounded-full animate-spin" />
         </div>
       </div>
+      </>
     );
   }
 
   return (
+    <>
+    <SeoHead title={`${activity.title} | Activité de SAID BZIOUI`} description={activity.description} path={`/activity/${id}`} image={activity.photo} type="article" />
     <div className="min-h-screen  px-[2%] sm:px-0 relative overflow-hidden">
       {/* Background animations remain unchanged */}
       <div className="fixed inset-0">
@@ -279,6 +285,7 @@ const ActivityDetails = () => {
         }
       `}</style>
     </div>
+    </>
   );
 };
 

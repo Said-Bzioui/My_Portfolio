@@ -7,6 +7,7 @@ import { PROJECTS } from "../../lib/data";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import SeoHead from "@/components/SeoHead";
 
 function ProjectImage({ src, alt, className, eager = false }) {
   const [loaded, setLoaded] = useState(false);
@@ -102,6 +103,8 @@ export default function ProjectDetails() {
   useEffect(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }, [id]);
 
   if (!project) return (
+    <>
+      <SeoHead title="Projet introuvable | SAID BZIOUI" description="Ce projet n’est pas disponible. Retrouvez les autres réalisations dans le portfolio de Said Bzioui." path={`/project/${id}`} noindex />
     <main className="flex min-h-screen items-center justify-center bg-page-background px-6 text-center text-foreground">
       <div className="max-w-md">
         <FolderOpen className="mx-auto mb-6 size-12 text-primary-light" aria-hidden="true" />
@@ -111,6 +114,7 @@ export default function ProjectDetails() {
         <Button asChild className="mt-7 rounded-full px-6"><Link to="/#Projects"><ArrowLeft className="size-4" />Voir les projets</Link></Button>
       </div>
     </main>
+    </>
   );
 
   const stack = [...new Set(project.stack || [])];
@@ -119,6 +123,8 @@ export default function ProjectDetails() {
   const next = PROJECTS[position + 1];
 
   return (
+    <>
+    <SeoHead title={`${project.title} | Projet de SAID BZIOUI`} description={project.description} path={`/project/${id}`} image={project.photo} type="article" />
     <main className="relative min-h-screen bg-page-background px-[5%] pb-12 text-foreground sm:pb-20 lg:px-[8%]">
       <div className="mx-auto max-w-7xl">
         <header className="flex items-center justify-between gap-5 border-b border-white/10 py-5 sm:py-7">
@@ -167,5 +173,6 @@ export default function ProjectDetails() {
         </nav>
       </div>
     </main>
+    </>
   );
 }

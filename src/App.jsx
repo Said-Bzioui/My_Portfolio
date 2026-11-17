@@ -16,6 +16,7 @@ import Activities from './pages/activities'
 import ActivityDetails from './components/ActivityDetail'
 import { OpenTo } from './components/OpenTo'
 import Contact from './components/Contact'
+import SeoHead from './components/SeoHead'
 
 
 function Portfolio() {
@@ -28,6 +29,7 @@ function Portfolio() {
   }, [hash]);
   return (
     <>
+      <SeoHead />
       {/* <OpenTo /> */}
       <AnimatedBackground />
       <Navbar />

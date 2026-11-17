@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Footer from "./footer";
+import SeoHead from "@/components/SeoHead";
 
 const contactSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters"),
@@ -59,6 +60,8 @@ const Contact = () => {
     };
 
     return (
+        <>
+        <SeoHead title="Contact | SAID BZIOUI – Développeur Full Stack" description="Contactez Said Bzioui pour discuter d’un projet web, d’une collaboration ou d’une opportunité professionnelle au Maroc." path="/contact" />
         <div className="relative " >
             <div className="fixed inset-0">
                 <div className="absolute -inset-[10px] opacity-40">
@@ -294,6 +297,7 @@ const Contact = () => {
             )}
             <Footer />
         </div >
+        </>
     )
 }
 export default Contact
