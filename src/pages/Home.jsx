@@ -91,7 +91,7 @@ const Home = () => {
   return (
     <section className="relative isolate h-screen overflow-hidden" id="Home" aria-label="Introduction">
       <img
-        src="/hero_image.png"
+        src="/hero_image.webp"
         alt="Portrait in sunglasses against a warm orange and red background"
         width="1672"
         height="941"

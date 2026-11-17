@@ -1,15 +1,98 @@
 import { Instagram, Linkedin } from "./brand-icons";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { PARASCOLAIRRE } from "../../lib/data";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import JournalSpreadCarousel from "@/components/ui/journal-spread-carousel.jsx";
+
+function generateActivitySpreads(activity) {
+  if (!activity) return [];
+  const pics = activity.pictures && activity.pictures.length > 0
+    ? activity.pictures
+    : [activity.photo];
+
+  const spreads = [];
+
+  // Spread 1: Cover & Intro
+  spreads.push({
+    id: "cover",
+    label: "Page de couverture",
+    paper: "#282c44",
+    image: activity.photo,
+    imagePosition: "center",
+    prints: pics[0] ? [
+      { src: pics[0], x: 55, y: 15, w: 38, rotate: 4, caption: "Moment fort" }
+    ] : [],
+    notes: [
+      { x: 6, y: 18, w: 42, style: "card", title: activity.title, body: activity.description ? activity.description.slice(0, 110) + "..." : "" }
+    ]
+  });
+
+  // Group remaining pictures in pairs
+  const remaining = pics.slice(1);
+  const chunk = 2;
+  for (let i = 0; i < remaining.length; i += chunk) {
+    const p1 = remaining[i];
+    const p2 = remaining[i + 1];
+    const pageIndex = Math.floor(i / chunk) + 2;
+
+    const prints = [];
+    if (p1) {
+      prints.push({
+        src: p1,
+        x: 8,
+        y: 12 + (i % 3) * 4,
+        w: 36,
+        rotate: (i % 2 === 0 ? -4 : 5),
+        caption: `Photo #${i + 2}`,
+        tape: i % 2 === 0
+      });
+    }
+    if (p2) {
+      prints.push({
+        src: p2,
+        x: 54,
+        y: 16 - (i % 2) * 4,
+        w: 38,
+        rotate: (i % 2 === 0 ? 6 : -3),
+        caption: `Équipe & Action`,
+        tape: i % 2 !== 0
+      });
+    }
+
+    spreads.push({
+      id: `spread-${pageIndex}`,
+      label: `Épisode ${pageIndex - 1}`,
+      paper: pageIndex % 2 === 0 ? "#e7e2d6" : "#efe8da",
+      prints,
+      notes: [
+        {
+          x: 24,
+          y: 72,
+          w: 52,
+          style: "card",
+          title: `Souvenir #${pageIndex - 1}`,
+          body: activity.title
+        }
+      ]
+    });
+  }
+
+  // Final summary spread
+  spreads.push({
+    id: "closing",
+    label: "Clôture",
+    paper: "#25293e",
+    prints: pics[pics.length - 1] ? [
+      { src: pics[pics.length - 1], x: 32, y: 14, w: 36, rotate: -2, caption: "Mission accomplie !", tape: true }
+    ] : [],
+    notes: [
+      { x: 18, y: 72, w: 64, style: "card", title: "Clôture de l'activité", body: "Travail d'équipe, passion et innovation." }
+    ]
+  });
+
+  return spreads;
+}
 
 
 
@@ -50,7 +133,7 @@ const ActivityDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const activity = PARASCOLAIRRE.find((p) => String(p.id) === id);
-  const [picture, setPicture] = useState();
+  const spreads = useMemo(() => generateActivitySpreads(activity), [activity]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -66,11 +149,6 @@ const ActivityDetails = () => {
       </div>
     );
   }
-
-  // click
-  const handlePictureClick = (picture) => {
-    setPicture(picture)
-  };
 
   return (
     <div className="min-h-screen  px-[2%] sm:px-0 relative overflow-hidden">
@@ -122,34 +200,16 @@ const ActivityDetails = () => {
 
             </div>
 
-            <div className="space-y-6 md:space-y-10 animate-slideInRight">
-              <div className="relative p-3 w-full  rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                <img
-                  src={picture ? picture : activity.photo}
-                  alt={activity.title}
-                  loading="lazy"
-                  className="w-full md:h-96 object-contain rounded-md overflow-hidden "
+            <div className="space-y-4 md:space-y-6 animate-slideInRight">
+              <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black/40 backdrop-blur-xl">
+                <JournalSpreadCarousel
+                  spreads={spreads}
+                  height="560px"
+                  autoPlay={3500}
+                  showTitle={false}
+                  showActions={false}
+                  showTop={false}
                 />
-                <div className="mt-5">
-                  <Carousel className="w-[80%] mx-auto">
-                    <CarouselContent className="p-2">
-                      {activity.pictures?.map((pic, i) => (
-                        <CarouselItem key={i} className={`basis-1/3 md:basis-1/5 ml-1 h-20 flex items-center overflow-hidden  p-0 cursor-pointer hover:scale-105 transition-transform `}
-                          onClick={() => handlePictureClick(pic)}
-                        >
-                          <img
-                            src={pic}
-                            alt={activity.title}
-                            loading="lazy"
-                            className={`object-cover  h-full   ${picture === pic ? 'ring-3 ring-burgundy' : ''} `}
-                          />
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
-                  </Carousel>
-                </div>
               </div>
             </div>
           </div>
