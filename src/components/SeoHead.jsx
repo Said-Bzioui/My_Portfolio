@@ -5,8 +5,8 @@ const SITE_URL = 'https://saidbzioui.vercel.app'
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`
 
 export default function SeoHead({
-  title = 'Développeur Full Stack & IA au Maroc | SAID BZIOUI',
-  description = 'Said Bzioui, développeur Full Stack au Maroc, conçoit des sites web et SaaS avec React, Next.js, Laravel, FastAPI et IA. Expérience en SEO et GEO.',
+  title = 'Software Developer Full Stack & IA au Maroc | SAID BZIOUI',
+  description = 'Said Bzioui, Software Developer au Maroc, développe des applications web et SaaS avec React, Next.js, Laravel, FastAPI et des solutions d’intelligence artificielle.',
   path = '/',
   image = DEFAULT_IMAGE,
   type = 'website',

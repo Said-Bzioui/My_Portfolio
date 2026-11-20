@@ -6,7 +6,7 @@ import { EXPERIANCES } from "../../lib/data";
 const ExperiencesPage = () => {
     return (
         <div className="container mx-auto p-6" id="Experiences">
-            <Titele head="Mes expériences" paragraph="Mes postes et stages en développement web." />
+            <Titele head="Mes expériences" paragraph="Responsabilités, compétences et projets menés en développement logiciel." />
             <Timeline data={EXPERIANCES} />
         </div>
     );

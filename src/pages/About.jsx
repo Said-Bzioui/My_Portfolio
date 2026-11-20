@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { CERTIFICATES, PROJECTS } from "../../lib/data";
 import StatusCard from "@/components/AboutStatusCard";
-import cvFile from "../assets/CV-BZIOUI_SAID_FULLSTACK.pdf";
+import cvFile from "../assets/BZIOUI_SAID—CV_FULL_STACK.pdf";
 
 const AboutPage = () => {
   useEffect(() => {
@@ -63,17 +63,21 @@ const AboutPage = () => {
 
           <div className="flex flex-col justify-center lg:border-l lg:border-white/10 lg:pl-10 xl:pl-12" data-aos="fade-up" data-aos-delay="100">
             <p className="text-lg leading-relaxed text-foreground/90 sm:text-xl">
-              Développeur full stack avec plus d’un an d’expérience professionnelle,
-              je conçois et déploie des applications web et des solutions SaaS.
-              Je prends en charge l’architecture, les interfaces et le back-end,
-              jusqu’à la mise en production.
+              Software Developer avec plus d’un an d’expérience dans le
+              développement d’applications web et de solutions SaaS. Spécialisé
+              dans l’écosystème Full Stack, je maîtrise React, Next.js, Laravel
+              et FastAPI, ainsi que l’intégration de solutions d’intelligence
+              artificielle. J’interviens sur tout le cycle de développement,
+              de la conception de l’architecture technique au déploiement et à
+              la maintenance des applications.
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Chez Wave Digital Agency à Kénitra, j’ai conçu et développé seul
-              Switchlab, une plateforme d’accompagnement sportif et nutritionnel,
-              et Chiffrage.ai, qui analyse des documents BTP avec l’IA.
-              J’ai aussi contribué à Solimage et Effical, en travaillant sur
-              l’intégration d’IA, la maintenance et les fonctionnalités métier.
+              Après un stage de pré-embauche, j’ai collaboré avec Wave Digital
+              Agency (Tenor Digital) à Kénitra de septembre 2025 à novembre 2026.
+              J’y ai conçu et développé Switchlab et Chiffrage.ai, puis contribué
+              à Solimage et Effical. Mes missions couvraient le développement
+              full stack, l’intégration de solutions d’IA, l’automatisation de
+              workflows et la maintenance applicative.
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               Diplômé en développement digital, option full stack, à la CMC de Tamesna,

@@ -11,12 +11,14 @@ const navItems = [
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
     const [activeSection, setActiveSection] = useState("Home");
 
 
 
     useEffect(() => {
         const handleScroll = () => {
+            setIsScrolled(window.scrollY > 24);
             const sections = navItems.map(item => {
                 const section = document.querySelector(item.href);
                 if (section) {
@@ -69,15 +71,15 @@ const Navbar = () => {
     return (
         <nav
             aria-label="Navigation principale"
-            className={`fixed w-full  top-0 z-50 transition-all duration-500 bg-transparent`}
+            className="fixed inset-x-0 top-0 z-50 bg-transparent transition-all duration-500"
         >
-            <div className="mx-auto    px-4 sm:px-6 lg:px-[10%] ">
-                <div className={`flex items-center justify-between h-14 mt-4 border bg-muted/20! border-secondary/10 rounded-full px-5
-                      ${isOpen
-                        ? "bg-nav-surface opacity-100"
-                        : "bg-secondary/6 backdrop-blur-xl"
-                    }
-                    `}>
+            <div className={`mx-auto transition-all duration-500 ${isScrolled ? "w-[min(90vw,58rem)] px-0" : "w-[min(94vw,64rem)] px-0 pt-3"}`}>
+                <div
+                    className={`flex h-14 items-center justify-between border px-5 backdrop-blur-2xl transition-all duration-500 ${isScrolled
+                        ? `mt-4 w-full rounded-full border-secondary/10 ${isOpen ? "bg-nav-surface opacity-100" : "bg-secondary/6"}`
+                        : "mt-0 w-full rounded-full border-white/10 bg-[#08090e]/95 shadow-[0_14px_50px_rgba(0,0,0,0.45)]"
+                        }`}
+                >
                     {/* Logo */}
                     <div className="flex-shrink-0">
                         <a

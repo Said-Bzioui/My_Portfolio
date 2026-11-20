@@ -36,7 +36,6 @@ const Home = () => {
   const [isTyping, setIsTyping] = useState(true)
   const [wordIndex, setWordIndex] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
-  const [isLoaded, setIsLoaded] = useState(false)
 
   // Optimize AOS initialization
   useEffect(() => {
@@ -51,11 +50,6 @@ const Home = () => {
     initAOS();
     window.addEventListener('resize', initAOS);
     return () => window.removeEventListener('resize', initAOS);
-  }, []);
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setIsLoaded(true));
-    return () => cancelAnimationFrame(frame);
   }, []);
 
   // Optimize typing effect
@@ -100,7 +94,7 @@ const Home = () => {
         className="absolute inset-0 h-[28rem] w-full object-cover object-[58%_top] [mask-image:linear-gradient(to_bottom,black_50%,transparent_100%)] lg:h-full lg:object-center lg:[mask-image:linear-gradient(to_bottom,black_45%,transparent_100%)]"
       />
       <div className="pointer-events-none absolute inset-0 bg-linear-to-r from-page-background/25 to-transparent to-65% [mask-image:linear-gradient(to_bottom,black_45%,transparent_100%)]" aria-hidden="true" />
-      <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
+      <div className="relative z-10">
         <div className="container mx-auto px-[5%] sm:px-6">
           <div className="flex h-screen items-end pt-24 pb-6 sm:pb-10 lg:items-center lg:pt-24 lg:pb-10">
             {/* Left Column */}
@@ -112,15 +106,10 @@ const Home = () => {
                   <h1 className="text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.05] lg:text-[clamp(3rem,5.2vw,5.5rem)] font-bold tracking-tight text-white">
                     <span className="relative inline-block">
                       <span className="relative">
-                        Développeur
+                        Software Developer
                       </span>
                     </span>
                     <br />
-                    <span className="relative flex items-satrt md:items-center flex-col md:flex-row mt-2 ">
-                      <span className="relative w-fit h-fit">
-                        Full Stack
-                      </span>
-                    </span>
                   </h1>
                 </div>
 
@@ -136,7 +125,7 @@ const Home = () => {
                 <p className="text-base md:text-lg text-white/85 max-w-xl leading-relaxed font-light"
                   data-aos="fade-up"
                   data-aos-delay="1000">
-                  Plus d’un an d’expérience professionnelle dans le développement d’applications web et SaaS. Je prends en charge l’architecture, l’intégration d’IA et le déploiement en production.
+                  Plus d’un an d’expérience dans le développement d’applications web et SaaS. Spécialisé en full stack, je maîtrise React, Next.js, Laravel et FastAPI, ainsi que l’intégration de solutions d’intelligence artificielle. J’interviens de la conception de l’architecture technique au déploiement et à la maintenance.
                 </p>
 
                 {/* Tech Stack */}
